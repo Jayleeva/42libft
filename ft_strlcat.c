@@ -6,14 +6,14 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 11:24:07 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/03 11:48:48 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/03 13:31:42 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 //#include <stdio.h>
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 

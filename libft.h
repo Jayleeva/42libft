@@ -6,7 +6,7 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 10:56:42 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/03 12:16:35 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/03 15:13:02 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef	LIBFT_H
@@ -31,7 +31,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dstize);
 size_t	ft_strlcat(char *dest, const char *src, size_t dstsize);
 int	ft_toupper(int c);
 int	ft_tolower(int c);
-//?	ft_strchr(?);
+char	*ft_strchr(const char *s, int c);
 //?	ft_strrchr(?);
 int	ft_strcmp(char *s1, char *s2);
 //?	ft_memchr(?);
