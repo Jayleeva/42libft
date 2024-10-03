@@ -6,7 +6,7 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 10:56:42 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/01 16:59:40 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/03 12:16:35 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef	LIBFT_H
@@ -24,13 +24,13 @@ int	ft_isascii(int c);
 int	ft_isprint(int c);
 int	ft_strlen(char *str);
 void	*ft_memset(void *b, int c, size_t len);
-//?	ft_bzero(?);
-//?	ft_memcpy(?);
-//?	ft_memmove(?);
-int	ft_strlcpy(char *dest, char *src, int size);
-int	ft_strlcat(char *dest, char *src, int size);
-//?	ft_toupper(?);
-//?	ft_tolower(?);
+void	ft_bzero(void *s, size_t n);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+void	*ft_memmove(void *dest, const void *src, size_t n);
+size_t	ft_strlcpy(char *dest, const char *src, size_t dstize);
+size_t	ft_strlcat(char *dest, const char *src, size_t dstsize);
+int	ft_toupper(int c);
+int	ft_tolower(int c);
 //?	ft_strchr(?);
 //?	ft_strrchr(?);
 int	ft_strcmp(char *s1, char *s2);

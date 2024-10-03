@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 13:58:22 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/03 09:18:55 by cyglardo         ###   ########.fr       */
+/*   Created: 2024/10/03 11:49:20 by cyglardo          #+#    #+#             */
+/*   Updated: 2024/10/03 12:10:41 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	size_t	i;
+#include <ctype.h>
+//#include <unistd.h>
 
-	i = 0;
-	while (str[0])
-		i ++;
-	return (i);
+int	ft_toupper(int c)
+{
+	c = (unsigned char)c;
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
 }
+
+/*int	main(void)
+{
+	int	c;
+
+	c = 93;
+	c = ft_toupper(c);
+	write(1, &c, 1);
+}*/
