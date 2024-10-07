@@ -6,7 +6,7 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 09:32:03 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/03 10:20:45 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/07 12:20:22 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		dest_[i] = temp;
 		i ++;
 	}
+	dest_[i] = '\0';
 	return (dest);
 }
 

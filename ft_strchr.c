@@ -6,12 +6,13 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 12:19:26 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/03 15:13:00 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/07 14:30:15 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdio.h>
+#include <unistd.h>
 
 size_t	ft_strlen(const char *str)
 {
@@ -23,38 +24,50 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*from_ptr(const char *s, size_t ptr)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int		i;
-	char	*s_;
+	size_t			i;
+	char			*dest_;
+	const char		*src_;
+	char			temp;
 
-	i = 0;
-	while (s[ptr])
+	dest_ = dest;
+	src_ = src;
+	while (i < n)
 	{
-		s_[i] = s[ptr];
-		ptr ++;
+		temp = src_[i];
+		dest_[i] = temp;
+		write(1, "ok", 3);
+		i ++;
 	}
-	return (s_);
+	dest_[i] = '\0';
+	return (dest);
 }
 
 char	*ft_strchr(const char *s, int c)
 {
-	int			i;
-	size_t		ptr;
+	//size_t		i;
+	//size_t		j;
+	char		*s_;
 
 	c = (unsigned char)c;
+	//i = 0;
+	//j = 0;
 	
 	if (c == '\0')
 	{
-		ptr = ft_strlen(s);
-		return (from_ptr(s, ptr));
+		while (*s)
+			*s ++;
+		return (s);
 	}
-	i = 0;
-	while (s[i])
+	//s_ = ft_memmove(s_, s, ft_strlen(s));
+	while (*s)
 	{
-		if (s[i] == c)
-			return (from_ptr(s, i));
-		i ++;
+		if (*s == c)
+		{
+			return (s);
+		}
+		*s ++;
 	}
 	return (NULL);
 }
@@ -66,5 +79,6 @@ int	main(void)
 	char		*result;
    
 	result = ft_strchr(s, c);
-	printf("%s", result);
+	printf("\n%s", result);
+	return (0);
 }
