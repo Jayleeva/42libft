@@ -11,8 +11,7 @@
 /* ************************************************************************** */
 
 #include <string.h>
-#include <stdio.h>
-#include <unistd.h>
+//#include <stdio.h>
 
 size_t	ft_strlen(const char *str)
 {
@@ -24,55 +23,24 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
-{
-	size_t			i;
-	char			*dest_;
-	const char		*src_;
-	char			temp;
-
-	dest_ = dest;
-	src_ = src;
-	while (i < n)
-	{
-		temp = src_[i];
-		dest_[i] = temp;
-		write(1, "ok", 3);
-		i ++;
-	}
-	dest_[i] = '\0';
-	return (dest);
-}
-
 char	*ft_strchr(const char *s, int c)
 {
-	//size_t		i;
-	//size_t		j;
-	char		*s_;
+	size_t	i;
 
 	c = (unsigned char)c;
-	//i = 0;
-	//j = 0;
-	
 	if (c == '\0')
+		return ((char *)&s[ft_strlen(s)]);
+	i = 0;
+	while (s[i])
 	{
-		while (*s)
-			*s ++;
-		return (s);
-	}
-	//s_ = ft_memmove(s_, s, ft_strlen(s));
-	while (*s)
-	{
-		if (*s == c)
-		{
-			return (s);
-		}
-		*s ++;
+		if (s[i] == c)
+			return ((char *)&s[i]);
+		i ++;
 	}
 	return (NULL);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	const char	s[7] = "ABCDEF";
 	int			c = 68;
@@ -81,4 +49,4 @@ int	main(void)
 	result = ft_strchr(s, c);
 	printf("\n%s", result);
 	return (0);
-}
+}*/
