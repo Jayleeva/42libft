@@ -1,5 +1,5 @@
 #include <string.h>
-#include <stdio.h>
+//#include <stdio.h>
 
 size_t	ft_strlen(const char *str)
 {
@@ -13,36 +13,30 @@ size_t	ft_strlen(const char *str)
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t	i;
-    size_t  j;
+	size_t		i;
+	const char	*s_;
 
+	s_ = s;
 	c = (unsigned char)c;
 	if (c == '\0')
-		return ((char *)&s[ft_strlen(s)]);
+		return ((char *)&s_[ft_strlen(s)]);
 	i = 0;
-    j = 0;
-	while (s[i])
+	while (i < n)
 	{
-		if (s[i] == c)
-        {
-            while (j < n)
-            {
-
-            }
-            return ((char *)&s[i]);
-        }
+		if (s_[i] == c)
+            return ((char *)&s_[i]);
 		i ++;
 	}
 	return (NULL);
 }
 
-int main(void)
+/*int main(void)
 {
     const char  s[7] = "ABCDEF";
-    int         c = 65;
+    int         c = 66;
     size_t      n = 2;
     char        *result;
 
     result = ft_memchr(s, c, n);
     printf("%s", result);
-}
+}*/
