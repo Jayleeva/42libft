@@ -36,12 +36,12 @@ char	*ft_strrchr(const char *s, int c);
 int	ft_strcmp(const char *s1, const char *s2);
 void	*ft_memchr(const void *s, int c, size_t n);
 int	ft_memcmp(const void *s1, const void *s2, size_t n);
-char	*ft_strnstr(char *str, char *to_find);
-int	ft_atoi(char *str);
+char	*ft_strnstr(const char *str, const char *to_find, size_t n);
+int	ft_atoi(const char *str);
 
 //besoin de malloc
-//?	ft_calloc(?);
-char	*ft_strdup(char *src);
+void	*ft_calloc(size_t nelem, size_t elsize);
+char	*ft_strdup(const char *src);
 
 //fonctions absentes/differentes de la libc
 char	*ft_substr(char const *s, unsigned int start, size_t len);
