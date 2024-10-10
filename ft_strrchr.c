@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/10 10:01:33 by cyglardo          #+#    #+#             */
+/*   Updated: 2024/10/10 11:31:40 by cyglardo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <string.h>
 //#include <stdio.h>
@@ -15,21 +26,17 @@ size_t	ft_strlen(const char *str)
 char	*ft_strrchr(const char *s, int c)
 {
 	size_t	i;
-    int  temp;
 
 	c = (unsigned char)c;
 	if (c == '\0')
 		return ((char *)&s[ft_strlen(s)]);
-	i = 0;
-    temp = -1;
-	while (s[i])
+	i = ft_strlen(s);
+	while (i > 0)
 	{
 		if (s[i] == c)
-            temp = i;
-		i ++;
+			return ((char *)&s[i]);
+		i --;
 	}
-    if (temp >= 0)
-        return ((char *)&s[temp]);
 	return (NULL);
 }
 

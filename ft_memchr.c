@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/10 10:00:05 by cyglardo          #+#    #+#             */
+/*   Updated: 2024/10/10 10:09:46 by cyglardo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 //#include <stdio.h>
 
@@ -24,7 +36,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (s_[i] == c)
-            return ((char *)&s_[i]);
+			return ((char *)&s_[i]);
 		i ++;
 	}
 	return (NULL);
