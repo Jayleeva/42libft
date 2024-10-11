@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "s:/0_AuCentreActuellement/Glardon_Cynthia/42/cursus/42-cursus/42-cursus",
-      "program": "s:/0_AuCentreActuellement/Glardon_Cynthia/42/cursus/42-cursus/42-cursus/build/Debug/outDebug",
+      "cwd": "s:/0_AuCentreActuellement/Glardon_Cynthia/42/cursus/42-cursus-1",
+      "program": "s:/0_AuCentreActuellement/Glardon_Cynthia/42/cursus/42-cursus-1/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

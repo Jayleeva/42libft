@@ -24,22 +24,39 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t		i;
-	char		*dest_;
-	const char	*src_;
+	char	*result;
+	size_t	i;
+	size_t	j;
 
-	dest_ = dest;
-	src_ = src;
-	i = 0;
-	while (i < n)
+	result = (char *) malloc((len + 1) * sizeof(char));
+	if (result == NULL)
+		return (NULL);
+	i = start;
+	j = 0;
+	while (i < start + len)
 	{
-		dest_[i] = src_[i];
+		result[j] = s[i];
+		j ++;
 		i ++;
 	}
-	dest_[i] = '\0';
-	return (dest);
+	result[j] = '\0';
+	return (result);
+}
+
+int	is_in_set(char const *set, char c)
+{
+	size_t	i;
+
+	i = 0;
+	while (set[i])
+	{
+		if (set[i] == c)
+			return (1);
+		i ++;
+	}
+	return (0);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -47,25 +64,18 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t		start;
 	size_t		end;
 	char		*copy;
-	size_t		i;
 	
 	copy = (char *) malloc((ft_strlen(s1) + 1) * sizeof(char));
 	if (copy == NULL)
 		return (NULL);
 	copy = (char *)s1;
-	i = 0;
-	while (set[i])
-	{
-		start = 0;
-		while (copy[start] == set[i])
-			start ++;
-		copy = &copy[start];
-		end = ft_strlen(copy) -1;
-		while (copy[end] == set[i])
-			end --;
-		copy = ft_memcpy(copy, copy, end); 
-		i ++;
-	}
+	end = ft_strlen(copy) -1;
+	start = 0;
+	while (is_in_set(set, copy[start]) == 1)
+		start ++;				
+	while (is_in_set(set, copy[end]) == 1)
+		end --;
+	copy = ft_substr(copy, start, end - start + 1);
 	return (copy);
 }
 
@@ -76,5 +86,5 @@ int	main(void)
 	char		*result;
 
 	result = ft_strtrim(s1, set);
-	printf("\n%s", result);
+	printf("\n\n%s", result);
 }

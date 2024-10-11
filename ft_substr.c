@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
-//#include <stdio.h>
+#include <stdio.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -18,7 +18,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	j;
 
-	result = (char *) malloc(len * sizeof(char));
+	result = (char *) malloc((len + 1) * sizeof(char));
 	if (result == NULL)
 		return (NULL);
 	i = start;
@@ -29,10 +29,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		j ++;
 		i ++;
 	}
+	result[j] = '\0';
 	return (result);
 }
 
-/*int	main(void)
+int	main(void)
 {
 	char			s[] = "ah bah voila";
 	unsigned int	start = 3;
@@ -41,4 +42,4 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	result = ft_substr(s, start, len);
 	printf("%s", result);
-}*/
+}
