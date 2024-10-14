@@ -6,13 +6,13 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 10:46:48 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/10 15:06:55 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/14 10:27:04 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <string.h>
 #include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
+//#include <stdio.h>
+//#include <unistd.h>
 
 size_t	ft_strlen(const char *str)
 {
@@ -64,7 +64,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t		start;
 	size_t		end;
 	char		*copy;
-	
+
 	copy = (char *) malloc((ft_strlen(s1) + 1) * sizeof(char));
 	if (copy == NULL)
 		return (NULL);
@@ -72,14 +72,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	end = ft_strlen(copy) -1;
 	start = 0;
 	while (is_in_set(set, copy[start]) == 1)
-		start ++;				
+		start ++;
 	while (is_in_set(set, copy[end]) == 1)
 		end --;
 	copy = ft_substr(copy, start, end - start + 1);
 	return (copy);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	const char	s1[] = "?!?ah bah? voila?!?!";
 	const char	set[] = "?!";
@@ -87,4 +87,4 @@ int	main(void)
 
 	result = ft_strtrim(s1, set);
 	printf("\n\n%s", result);
-}
+}*/

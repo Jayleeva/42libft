@@ -6,11 +6,11 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 10:01:51 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/10 10:46:26 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/14 10:24:27 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
-#include <stdio.h>
+//#include <stdio.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -33,7 +33,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (result);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char			s[] = "ah bah voila";
 	unsigned int	start = 3;
@@ -42,4 +42,4 @@ int	main(void)
 
 	result = ft_substr(s, start, len);
 	printf("%s", result);
-}
+}*/
