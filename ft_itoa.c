@@ -6,66 +6,84 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:12:43 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/14 17:58:12 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/15 11:19:50 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_memset.c"
 #include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
+//#include <stdio.h>
 
-char	*ft_strcat_(char *result, int n)
+int	get_nelem(int n)
 {
-	int	i;
+	int	sign;
+	int	nelem;
 
-	i = 0;
-	while (result[i])
+	nelem = 0;
+	if (n < 0)
 	{
-		result[i] = n;
-		i ++;
-	}
-	return (result);
-}
-
-void	ft_putnbr_(int nb, char *result)
-{
-	if (nb > 9)
-	{
-		ft_putnbr_(nb / 10, result);
-		ft_putnbr_(nb % 10, result);
+		sign = 1;
+		if (n == -2147483648)
+			n ++;
+		n = n * -1;
 	}
 	else
-		result = ft_strcat_(result, nb + '0');
+		sign = 0;
+	while (n > 9)
+	{
+		nelem ++;
+		n = n / 10;
+	}
+	return (nelem + sign);
+}
+
+int	get_temp(int n)
+{
+	int	temp;
+
+	temp = n;
+	if (n < 0)
+	{
+		if (n == -2147483648)
+			temp ++;
+		temp = temp * -1;
+	}
+	return (temp);
 }
 
 char	*ft_itoa(int n)
 {
+	int		nelem;
 	int		i;
-	int		j;
 	int		temp;
 	char	*result;
-	
-	result = (char *)malloc((11 + 1) * sizeof(char));
+
+	nelem = get_nelem(n);
+	result = (char *)malloc((nelem + 1) * sizeof(char));
 	if (result == NULL)
 		return (NULL);
-	result = ft_memset(result, '+', 11); 
-	i = 0;
-	if (n < 0)
+	temp = get_temp(n);
+	i = nelem;
+	while (i > 0)
 	{
-		n = n * -1;
-		result[0] = '-';
-		i ++;
+		result[i] = (temp % 10) + '0';
+		temp = temp / 10;
+		i --;
 	}
-	ft_putnbr_(n, result);
+	if (n < 0)
+		result[0] = '-';
+	else
+		result[0] = temp + '0';
+	if (n == -2147483648)
+		result[nelem] = '8';
+	result[nelem +1] = '\0';
 	return (result);
 }
 
-int	main(void)
+/*int	main(void)
 {
-	int		n = -2147483648;
+	int		n = 2147483647;
 	char	*result;
 
 	result = ft_itoa(n);
-	printf("\n%s", result);
-}
+	printf("%s", result);
+}*/

@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 13:58:22 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/15 15:09:25 by cyglardo         ###   ########.fr       */
+/*   Created: 2024/10/15 15:17:34 by cyglardo          #+#    #+#             */
+/*   Updated: 2024/10/15 15:54:54 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <string.h>
 
-size_t	ft_strlen(const char *str)
+#include <stdio.h>
+
+void	ma_fonction(unsigned int i, char *str)
 {
-	size_t	i;
+	return ();
+}
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	unsigned int	i;
 
 	i = 0;
-	while (str[i])
-		i ++;
-	return (i);
+	while (s[i])
+	{
+
+	}
+}
+
+int	main(void)
+{
+	ft_striteri(s, ma_fonction);
 }
