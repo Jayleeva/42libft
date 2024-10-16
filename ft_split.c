@@ -10,26 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "ft_strchr.c"
 #include "ft_substr.c"
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
-#include <unistd.h>
+//#include <stdio.h>
 
-/*void	ft_print(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		printf("\n%s", tab[i]);
-		i ++;
-	}
-}*/
-
-size_t	ft_strlen_(const char *str, char c)
+size_t	ft_strlen_to(const char *str, char c)
 {
 	size_t	i;
 
@@ -39,7 +27,7 @@ size_t	ft_strlen_(const char *str, char c)
 	return (i);
 }
 
-char	**cut(char **result, int nb, char const *s, char c)
+char	**fill_tab(char **result, int nb, char const *s, char c)
 {
 	int	i;
 
@@ -53,10 +41,9 @@ char	**cut(char **result, int nb, char const *s, char c)
 	i = 0;
 	while (i < nb)
 	{
-		result[i] = ft_substr(result[i], 0, ft_strlen_(result[i], c));
+		result[i] = ft_substr(result[i], 0, ft_strlen_to(result[i], c));
 		i ++;
 	}
-	ft_print(result);
 	return (result);
 }
 
@@ -80,19 +67,33 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	while (i < nb)
 	{
-		result[i] = (char *)malloc((ft_strlen_(s, '\0') + 1) * sizeof(char));
+		result[i] = (char *)malloc((ft_strlen_to(s, '\0') + 1) * sizeof(char));
 		if (result[i] == NULL)
 			return (NULL);
 		i++;
 	}
-	result = cut(result, nb, s, c);
+	result = fill_tab(result, nb, s, c);
 	return (result);
 }
 
-/*int	main(void)
+/*void	ft_print_tab(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		printf("\n%s", tab[i]);
+		i ++;
+	}
+}
+
+int	main(void)
 {
 	char const	s[] = "Salut ca va?|-Non et toi?|-Bien merci.|-Cool.";
 	char		c = '|';
+	char		**result;
 
-	ft_split(s, c);
+	result = ft_split(s, c);
+	ft_print_tab(result);
 }*/

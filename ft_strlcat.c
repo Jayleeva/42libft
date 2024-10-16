@@ -10,18 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+#include "ft_strlen.c"
 #include <string.h>
 //#include <stdio.h>
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i ++;
-	return (i);
-}
 
 size_t	ft_strlcat(char *dest, const char *src, size_t dstsize)
 {
@@ -48,6 +40,5 @@ size_t	ft_strlcat(char *dest, const char *src, size_t dstsize)
 	size_t		result;
 	
 	result = ft_strlcat(dest, src, dstsize);
-	printf("%s\n", dest);
-	printf("%lu", result);	
+	printf("%zu", result);	
 }*/

@@ -9,19 +9,10 @@
 /*   Updated: 2024/10/10 10:09:46 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include "libft.h"
+#include "ft_strlen.c"
 #include <string.h>
 //#include <stdio.h>
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i ++;
-	return (i);
-}
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

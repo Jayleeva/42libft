@@ -9,6 +9,9 @@
 /*   Updated: 2024/10/01 13:53:26 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
+#include <stdio.h>
+#include <ctype.h>
 
 int	ft_isascii(int c)
 {
@@ -16,4 +19,15 @@ int	ft_isascii(int c)
 		return (1);
 	else
 		return (0);
+}
+
+int	main(void)
+{
+	int	i = -1;
+	int	result;
+
+	result = ft_isascii(i);
+	printf("CUSTOM = %d\n", result);
+	result = isascii(i);
+	printf("OFFICIAL = %d\n", result);
 }

@@ -9,24 +9,24 @@
 #    Updated: 2024/10/14 15:22:13 by cyglardo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-SRC = libft.h main.c ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isacii.c ft_isprint.c ft_strlen.c ft_memset.c
+SRC = libft.h $(wildcard *.c)
+OBJ = $(SRC:.c=.o)
+NAME = libft.a
 
-NAME = name
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-RM = /bin/rm -f
-RMDIR = /bin/rmdir
+$(OBJ): $(SRC)
+	$(CC) $(CFLAGS) $(SRC) -o $(OBJ)
+
+$(NAME): $(OBJ)
+     ar rcs $(NAME) $(OBJ) 
+
+all: $(NAME) clean
+clean:
+	rm -f $(OBJ)
+fclean:
+	clean rm -f $(NAME)
+re: fclean $(NAME)
 
 .PHONY : all clean fclean re
-all: $(NAME)
-
-$(NAME): $(SRC)
-	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
-
-clean:
-	$(RM) 
-fclean:
-	$(RM) $(NAME)
-
-re: fclean all

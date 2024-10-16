@@ -10,25 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+#include "ft_memset.c"
 #include <ctype.h>
 #include <stdlib.h>
 //#include <stdio.h>
-
-void	*ft_memset(void *b, int c, size_t len)
-{
-	size_t			i;
-	unsigned char	*b_;
-
-	i = 0;
-	b_ = b;
-	while (i < len)
-	{
-		b_[i] = (unsigned char)c;
-		i ++;
-	}
-	b_[i] = '\0';
-	return (b);
-}
 
 void	*ft_calloc(size_t nelem, size_t elsize)
 {

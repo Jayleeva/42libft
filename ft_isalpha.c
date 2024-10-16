@@ -9,24 +9,28 @@
 /*   Updated: 2024/10/01 13:34:51 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*#include <stdio.h>
-#include <ctype.h>*/
+
+#include "libft.h"
+#include <stdio.h>
+#include <ctype.h>
 
 int	ft_isalpha(int c)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+	if (c >= 'A' && c <= 'Z') 
 		return (1);
+	else if (c >= 'a' && c <= 'z')
+		return (2);
 	else
 		return (0);
 }
 
-/*int	main(int argc, char **argv)
+/*int	main(void)
 {
+	int	i = 'a';
 	int	result;
 
-	argc = 1;
-	result = ft_isalpha(argv[1][0]);
+	result = ft_isalpha(i);
 	printf("CUSTOM = %d\n", result);
-	result = isalpha(argv[1][0]);
+	result = isalpha(i);
 	printf("OFFICIAL = %d\n", result);
 }*/

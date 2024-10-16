@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>
-#include <ctype.h>*/
+#include "libft.h"
+#include <stdio.h>
+#include <ctype.h>
 
 int	ft_isdigit(int c)
 {
@@ -21,13 +22,13 @@ int	ft_isdigit(int c)
 		return (0);
 }
 
-/*int	main(int argc, char **argv)
+/*int	main(void)
 {
+	int	i = 1;
 	int	result;
 
-	argc = 1;
-	result = ft_isdigit(argv[1][0]);
-	printf("CUSTOM = %d/n", result);
-	result = isdigit(argv[1][0]);
-	printf("OFFICIAL = %d/n", result);
+	result = ft_isdigit(i);
+	printf("CUSTOM = %d\n", result);
+	result = isdigit(i);
+	printf("OFFICIAL = %d\n", result);
 }*/

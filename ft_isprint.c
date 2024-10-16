@@ -10,10 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+#include <stdio.h>
+#include <ctype.h>
+
 int	ft_isprint(int c)
 {
 	if (c >= 32 && c <= 126)
 		return (1);
 	else
 		return (0);
+}
+
+int	main(void)
+{
+	int	i = 32;
+	int	result;
+
+	result = ft_isprint(i);
+	printf("CUSTOM = %d\n", result);
+	result = isprint(i);
+	printf("OFFICIAL = %d\n", result);
 }

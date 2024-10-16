@@ -10,38 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+#include "ft_strlen.c"
 #include <stdlib.h>
 #include <string.h>
 //#include <stdio.h>
 
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i ++;
-	return (i);
-}
-
-char	*ft_strcat(char *dest, const char *src)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	i;
 	size_t	j;
-
-	i = ft_strlen((const char *)dest);
-	j = 0;
-	while (src[j])
-	{
-		dest[i + j] = src[j];
-		j ++;
-	}
-	dest[i + j] = '\0';
-	return (dest);
-}
-
-char	*ft_strjoin(char const *s1, char const *s2)
-{
 	size_t	size;
 	char	*result;
 
@@ -49,7 +27,19 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	result = (char *)malloc((size + 1) * sizeof(char));
 	if (result == NULL)
 		return (NULL);
-	result = ft_strcat((char *)s1, s2);
+	i = 0;
+	while (s1[i])
+	{
+		result[i] = s1[i];
+		i ++;
+	}
+	j = 0;
+	while (s2[j])
+	{
+		result[i + j] = s2[j];
+		j ++;
+	}
+	result[i + j] = '\0';
 	return (result);
 }
 
@@ -60,5 +50,5 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char		*result;
 
 	result = ft_strjoin(s1, s2);
-	printf("%s", result);
+	printf("\n%s", result);
 }*/

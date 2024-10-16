@@ -9,9 +9,8 @@
 /*   Updated: 2024/10/15 15:16:44 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include "libft.h"
 #include "ft_strlen.c"
-//#include "libft.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -19,7 +18,10 @@
 /*char	ft_toupper_(unsigned int i, char c)
 {
 	printf("%d", i);
-	return (c - 32);
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	else
+		return (c);
 }*/
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
@@ -28,7 +30,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	len;
 	char			*result;
 
-	//write(1, "OK", 2);
 	len = ft_strlen(s);
 	result = (char *)malloc((len + 1) * sizeof(char));
 	if (result == NULL)
@@ -45,7 +46,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 /*int	main(void)
 {
-	const char	s[] = "abc";
+	const char	s[] = "AbC";
 	char		*result;
 
 	result = ft_strmapi(s, ft_toupper_);

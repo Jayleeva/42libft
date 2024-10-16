@@ -10,12 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
+//#include <stdio.h>
 
-void	ma_fonction(unsigned int i, char *str)
+/*void	ft_toupper_(unsigned int i, char *str)
 {
-	return ();
-}
+	if (str[i] >= 'a' && str[i] <= 'z')
+		str[i] -= 32;
+}*/
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
@@ -24,11 +26,15 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	i = 0;
 	while (s[i])
 	{
-
+		f(i, &s[i]);
+		i ++;
 	}
+	printf("%s", s);
 }
 
-int	main(void)
+/*int	main(void)
 {
-	ft_striteri(s, ma_fonction);
-}
+	char	s[] = "aBc";
+
+	ft_striteri(s, ft_toupper_);
+}*/

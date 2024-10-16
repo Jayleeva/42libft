@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <ctype.h>
 #include <stdlib.h>
 
@@ -25,5 +26,4 @@ void	ft_bzero(void *s, size_t n)
 		s_[i] = '\0';
 		i ++;
 	}
-	return ;
 }

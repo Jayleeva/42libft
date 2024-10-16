@@ -1,6 +1,6 @@
 .vscode/settings.json
-output/ft_strtrim.exe
-output/ft_substr.exe
+output
+a.out
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/settings.json

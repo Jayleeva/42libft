@@ -9,41 +9,13 @@
 /*   Updated: 2024/10/14 10:27:04 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
+#include "ft_strlen.c"
+#include "ft_substr.c"
 #include <string.h>
 #include <stdlib.h>
-//#include <stdio.h>
-//#include <unistd.h>
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i ++;
-	return (i);
-}
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*result;
-	size_t	i;
-	size_t	j;
-
-	result = (char *) malloc((len + 1) * sizeof(char));
-	if (result == NULL)
-		return (NULL);
-	i = start;
-	j = 0;
-	while (i < start + len)
-	{
-		result[j] = s[i];
-		j ++;
-		i ++;
-	}
-	result[j] = '\0';
-	return (result);
-}
+#include <stdio.h>
 
 int	is_in_set(char const *set, char c)
 {
