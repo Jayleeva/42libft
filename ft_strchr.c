@@ -6,13 +6,12 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 12:19:26 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/10 09:58:50 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:11:40 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "ft_strlen.c"
-#include <string.h>
+//#include <string.h>
 //#include <stdio.h>
 
 char	*ft_strchr(const char *s, int c)
@@ -39,6 +38,7 @@ char	*ft_strchr(const char *s, int c)
 	char		*result;
    
 	result = ft_strchr(s, c);
-	printf("\n%s", result);
-	return (0);
+	printf("CUSTOM : %s\n", result);
+	result = strchr(s, c);
+	printf("OFFICIAL : %s\n", result);
 }*/

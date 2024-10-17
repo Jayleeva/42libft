@@ -6,18 +6,14 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 11:45:53 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/14 14:12:12 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/17 17:05:08 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "ft_strchr.c"
-#include "ft_substr.c"
-#include <stdlib.h>
-#include <string.h>
-//#include <stdio.h>
+#include <stdio.h>
 
-size_t	ft_strlen_to(const char *str, char c)
+static size_t	ft_strlen_to(const char *str, char c)
 {
 	size_t	i;
 
@@ -27,7 +23,7 @@ size_t	ft_strlen_to(const char *str, char c)
 	return (i);
 }
 
-char	**fill_tab(char **result, int nb, char const *s, char c)
+static char	**fill_tab(char **result, int nb, char const *s, char c)
 {
 	int	i;
 
@@ -76,7 +72,7 @@ char	**ft_split(char const *s, char c)
 	return (result);
 }
 
-/*void	ft_print_tab(char **tab)
+void	ft_print_tab(char **tab)
 {
 	int	i;
 
@@ -95,5 +91,5 @@ int	main(void)
 	char		**result;
 
 	result = ft_split(s, c);
-	ft_print_tab(result);
-}*/
+	//ft_print_tab(result);
+}

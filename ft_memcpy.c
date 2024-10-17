@@ -6,12 +6,12 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 09:21:42 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/10 14:16:08 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:08:41 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
+//#include <string.h>
 //#include <stdio.h>
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
@@ -28,17 +28,19 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		dest_[i] = src_[i];
 		i ++;
 	}
-	dest_[i] = '\0';
 	return (dest);
 }
 
 /*int	main(void)
 {
 	char		dest[7] = "abcdef";
+	char		dest2[7] = "abcdef";
 	const char	src[7] = "ahahah";
 	size_t		n = 5;
 	char		*result;
 
 	result = ft_memcpy(dest, src, n);
-	printf("%s", result);
+	printf("CUSTOM : %s\n", result);
+	result = memcpy(dest2, src, n);
+	printf("OFFCIAL : %s\n", result);
 }*/

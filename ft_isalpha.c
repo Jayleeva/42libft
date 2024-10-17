@@ -6,20 +6,18 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 12:10:18 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/01 13:34:51 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:03:04 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <ctype.h>
+//#include <ctype.h>
+//#include <stdio.h>
 
 int	ft_isalpha(int c)
 {
-	if (c >= 'A' && c <= 'Z') 
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
 		return (1);
-	else if (c >= 'a' && c <= 'z')
-		return (2);
 	else
 		return (0);
 }

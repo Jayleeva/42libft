@@ -6,12 +6,12 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:42:36 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/01 13:53:26 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:03:40 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include <stdio.h>
-#include <ctype.h>
+//#include <ctype.h>
+//#include <stdio.h>
 
 int	ft_isascii(int c)
 {
@@ -21,7 +21,7 @@ int	ft_isascii(int c)
 		return (0);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	int	i = -1;
 	int	result;
@@ -30,4 +30,4 @@ int	main(void)
 	printf("CUSTOM = %d\n", result);
 	result = isascii(i);
 	printf("OFFICIAL = %d\n", result);
-}
+}*/

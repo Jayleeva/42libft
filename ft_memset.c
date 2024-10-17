@@ -6,15 +6,13 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:07:54 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/01 16:26:37 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:06:11 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/*#include <string.h>
-#include <stdio.h>*/
-#include <ctype.h>
-#include <stdlib.h>
+//#include <string.h>
+//#include <stdio.h>
 
 void	*ft_memset(void *b, int c, size_t len)
 {

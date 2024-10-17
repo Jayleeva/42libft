@@ -6,13 +6,13 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 11:49:20 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/15 14:44:37 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:11:12 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <ctype.h>
-//#include <unistd.h>
+//#include <ctype.h>
+//#include <stdio.h>
 
 int	ft_toupper(int c)
 {
@@ -24,9 +24,11 @@ int	ft_toupper(int c)
 
 /*int	main(void)
 {
-	int	c;
+	int	c = 98;
 
-	c = 93;
 	c = ft_toupper(c);
-	write(1, &c, 1);
+	printf("CUSTOM : %d\n", c);
+	c = 98;
+	c = toupper(c);
+	printf("OFFICIAL : %d\n", c);
 }*/

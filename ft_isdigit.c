@@ -6,13 +6,13 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 12:26:27 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/01 13:35:14 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:03:15 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <ctype.h>
+//#include <ctype.h>
+//#include <stdio.h>
 
 int	ft_isdigit(int c)
 {
@@ -24,7 +24,7 @@ int	ft_isdigit(int c)
 
 /*int	main(void)
 {
-	int	i = 1;
+	int	i = '1';
 	int	result;
 
 	result = ft_isdigit(i);

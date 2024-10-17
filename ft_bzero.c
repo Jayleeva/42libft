@@ -6,13 +6,13 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:27:20 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/10 09:59:41 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:07:58 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <ctype.h>
-#include <stdlib.h>
+//#include <strings.h>
+//#include <stdio.h>
 
 void	ft_bzero(void *s, size_t n)
 {
@@ -27,3 +27,13 @@ void	ft_bzero(void *s, size_t n)
 		i ++;
 	}
 }
+
+/*int	main(void)
+{
+	char	s[] = "help";
+	char	s2[] = "help";
+	size_t	n = 4;
+	
+	ft_bzero(s, n);
+	bzero(s2, n);
+}*/

@@ -1,46 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/10 10:00:05 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/17 16:14:01 by cyglardo         ###   ########.fr       */
+/*   Created: 2024/10/10 10:00:56 by cyglardo          #+#    #+#             */
+/*   Updated: 2024/10/17 16:13:33 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 //#include <string.h>
 //#include <stdio.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t		i;
-	const char	*s_;
+	size_t	i;
 
-	s_ = s;
-	c = (unsigned char)c;
-	if (c == '\0')
-		return ((char *)&s_[ft_strlen(s)]);
 	i = 0;
-	while (i < n)
+	while ((s1[i] || s2[i]) && i < n)
 	{
-		if (s_[i] == c)
-			return ((char *)&s_[i]);
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
 		i ++;
 	}
-	return (NULL);
+	return (0);
 }
 
 /*int main(void)
 {
-    const char  s[7] = "ABCDEF";
-    int         c = 66;
-    size_t      n = 2;
-    char        *result;
+	const char  s1[6] = "Hello";
+	const char  s2[6] = "Hell!";
+	size_t		n = 5;
+	int result;
 
-    result = ft_memchr(s, c, n);
-    printf("CUSTOM : %s\n", result);
-	result = memchr(s, c, n);
-	printf("OFFICIAL : %s\n", result);
+	result = ft_strncmp(s1, s2, n);
+	printf("CUSTOM : %d\n", result);
+	result = strncmp(s1, s2, n);
+	printf("OFFICIAL : %d\n", result);
 }*/

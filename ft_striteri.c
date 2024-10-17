@@ -6,7 +6,7 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 15:17:34 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/15 15:54:54 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:30:59 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 		f(i, &s[i]);
 		i ++;
 	}
-	printf("%s", s);
 }
 
 /*int	main(void)

@@ -6,18 +6,14 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 10:46:48 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/14 10:27:04 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:21:03 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "ft_strlen.c"
-#include "ft_substr.c"
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
+//#include <stdio.h>
 
-int	is_in_set(char const *set, char c)
+static int	is_in_set(char const *set, char c)
 {
 	size_t	i;
 

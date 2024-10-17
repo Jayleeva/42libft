@@ -6,14 +6,11 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 10:01:06 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/10 10:31:05 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:19:59 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "ft_strlen.c"
-#include <stdlib.h>
-#include <string.h>
 //#include <stdio.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)

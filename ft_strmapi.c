@@ -6,16 +6,13 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:20:19 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/15 15:16:44 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:31:12 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include "ft_strlen.c"
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
+//#include <stdio.h>
 
-/*char	ft_toupper_(unsigned int i, char c)
+/*static char	ft_toupper_(unsigned int i, char c)
 {
 	printf("%d", i);
 	if (c >= 'a' && c <= 'z')

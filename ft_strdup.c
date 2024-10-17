@@ -6,12 +6,13 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 10:00:43 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/10 10:12:44 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:17:02 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
+//#include <stdlib.h>
+//#include <string.h>
 //#include <stdio.h>
 
 char	*ft_strdup(const char *src)
@@ -38,8 +39,11 @@ char	*ft_strdup(const char *src)
 /*int main(void)
 {
     const char  str[] = "hello world";
-    char        *copy;
+    char        *result;
+	char		*result2;
 
-    copy = ft_strdup(str);
-    printf("%s", copy);
+    result = ft_strdup(str);
+    printf("CUSTOM : %s\n", result);
+	result2 = strdup(str);
+    printf("OFFICIAL : %s\n", result2);
 }*/

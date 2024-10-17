@@ -6,15 +6,14 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:12:43 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/15 11:19:50 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:28:04 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 //#include <stdio.h>
 
-int	get_nelem(int n)
+static int	get_nelem(int n)
 {
 	int	sign;
 	int	nelem;
@@ -37,7 +36,7 @@ int	get_nelem(int n)
 	return (nelem + sign);
 }
 
-int	get_temp(int n)
+static int	get_temp(int n)
 {
 	int	temp;
 

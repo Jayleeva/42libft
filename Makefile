@@ -6,9 +6,10 @@
 #    By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/01 10:45:16 by cyglardo          #+#    #+#              #
-#    Updated: 2024/10/14 15:22:13 by cyglardo         ###   ########.fr        #
+#    Updated: 2024/10/17 13:55:43 by cyglardo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
 SRC = libft.h $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 NAME = libft.a
@@ -20,7 +21,7 @@ $(OBJ): $(SRC)
 	$(CC) $(CFLAGS) $(SRC) -o $(OBJ)
 
 $(NAME): $(OBJ)
-     ar rcs $(NAME) $(OBJ) 
+     ar -rcs $(NAME) $(OBJ) 
 
 all: $(NAME) clean
 clean:

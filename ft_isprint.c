@@ -6,13 +6,13 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:54:08 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/01 13:56:57 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:03:54 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <ctype.h>
+//#include <ctype.h>
+//#include <stdio.h>
 
 int	ft_isprint(int c)
 {
@@ -22,13 +22,13 @@ int	ft_isprint(int c)
 		return (0);
 }
 
-int	main(void)
+/*int	main(void)
 {
-	int	i = 32;
+	int	i = 30;
 	int	result;
 
 	result = ft_isprint(i);
 	printf("CUSTOM = %d\n", result);
 	result = isprint(i);
 	printf("OFFICIAL = %d\n", result);
-}
+}*/
