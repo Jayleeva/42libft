@@ -54,5 +54,5 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char		*result;
 
 	result = ft_strtrim(s1, set);
-	printf("\n\n%s", result);
+	printf("\n%s", result);
 }*/

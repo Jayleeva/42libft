@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+//#include <stdio.h>
 
 static size_t	ft_strlen_to(const char *str, char c)
 {
@@ -72,24 +72,18 @@ char	**ft_split(char const *s, char c)
 	return (result);
 }
 
-void	ft_print_tab(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		printf("\n%s", tab[i]);
-		i ++;
-	}
-}
-
-int	main(void)
+/*int	main(void)
 {
 	char const	s[] = "Salut ca va?|-Non et toi?|-Bien merci.|-Cool.";
 	char		c = '|';
 	char		**result;
+	int			i;
 
 	result = ft_split(s, c);
-	//ft_print_tab(result);
-}
+	i = 0;
+	while (result[i])
+	{
+		printf("\n%s", result[i]);
+		i ++;
+	}
+}*/

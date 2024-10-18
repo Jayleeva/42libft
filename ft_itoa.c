@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include <stdio.h>
+#include <stdio.h>
 
 static int	get_nelem(int n)
 {
@@ -81,7 +81,7 @@ char	*ft_itoa(int n)
 
 /*int	main(void)
 {
-	int		n = 2147483647;
+	int		n = 2147483648;
 	char	*result;
 
 	result = ft_itoa(n);

@@ -18,12 +18,12 @@
 //# include <strings.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include "ft_isalpha.c"
-# include "ft_isdigit.c"
-# include "ft_strlen.c"
-# include "ft_substr.c"
-# include "ft_strchr.c"
-# include "ft_itoa.c"
+//# include "ft_isalpha.c"
+//# include "ft_isdigit.c"
+//# include "ft_strlen.c"
+//# include "ft_substr.c"
+//# include "ft_strchr.c"
+//# include "ft_itoa.c"
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
