@@ -62,5 +62,7 @@
     "string.h": "c",
     "libft.h": "c",
     "ctype.h": "c"
-  }
+  },
+  "configcat.productId": "08dcef72-5fe3-4377-8921-07e876d4f1c1",
+  "configcat.configId": "08dcef72-6008-42d0-8960-c6ab62f09d3d"
 }
