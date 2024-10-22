@@ -6,7 +6,7 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 11:49:20 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/21 16:30:03 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/22 15:27:39 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 int	ft_toupper(int c)
 {
-	c = (unsigned char)c;
 	if (c >= 'a' && c <= 'z')
 		c -= 32;
 	return (c);

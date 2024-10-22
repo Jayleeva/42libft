@@ -6,7 +6,7 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 10:46:48 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/22 10:33:57 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/22 17:24:42 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t		len;
 	char		*result;
 
-	end = ft_strlen(s1) -1;
+	end = ft_strlen(s1);
 	start = 0;
 	while (is_in_set(set, s1[start]) == 1)
 		start ++;
-	while (is_in_set(set, s1[end]) == 1)
+	if (start >= end)
+		return (ft_strdup(""));
+	while (is_in_set(set, s1[end -1]) == 1)
 		end --;
 	len = end - start;
-	result = (char *)malloc((len + 1) * sizeof(char));
-	if (result == NULL)
-		return (NULL);
-	result = ft_substr(s1, start, len + 1);
+	result = ft_substr(s1, start, len);
 	return (result);
 }
 

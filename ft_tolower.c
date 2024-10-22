@@ -6,7 +6,7 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 12:11:00 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/17 16:11:24 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/22 15:27:48 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 int	ft_tolower(int c)
 {
-	c = (unsigned char)c;
 	if (c >= 'A' && c <= 'Z')
 		c += 32;
 	return (c);
