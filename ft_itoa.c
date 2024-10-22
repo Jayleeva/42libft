@@ -6,19 +6,19 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:12:43 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/17 16:28:04 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/22 11:01:36 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+//#include <stdio.h>
 
 static int	get_nelem(int n)
 {
 	int	sign;
 	int	nelem;
 
-	nelem = 0;
+	nelem = 1;
 	if (n < 0)
 	{
 		sign = 1;
@@ -62,7 +62,7 @@ char	*ft_itoa(int n)
 	if (result == NULL)
 		return (NULL);
 	temp = get_temp(n);
-	i = nelem;
+	i = nelem -1;
 	while (i > 0)
 	{
 		result[i] = (temp % 10) + '0';
@@ -72,16 +72,16 @@ char	*ft_itoa(int n)
 	if (n < 0)
 		result[0] = '-';
 	else
-		result[0] = temp + '0';
+		result[0] = (temp % 10) + '0';
 	if (n == -2147483648)
-		result[nelem] = '8';
-	result[nelem +1] = '\0';
+		result[nelem -1] = '8';
+	result[nelem] = '\0';
 	return (result);
 }
 
 /*int	main(void)
 {
-	int		n = 2147483648;
+	int		n = 156;
 	char	*result;
 
 	result = ft_itoa(n);

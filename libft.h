@@ -6,24 +6,14 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 10:56:42 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/17 17:00:37 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/22 10:27:07 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-//# include <stdio.h>
-//# include <ctype.h>
-//# include <string.h>
-//# include <strings.h>
 # include <unistd.h>
 # include <stdlib.h>
-//# include "ft_isalpha.c"
-//# include "ft_isdigit.c"
-//# include "ft_strlen.c"
-//# include "ft_substr.c"
-//# include "ft_strchr.c"
-//# include "ft_itoa.c"
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -41,7 +31,7 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
-int		ft_strncmp(const char *s1, const char *s2);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *str, const char *to_find, size_t n);

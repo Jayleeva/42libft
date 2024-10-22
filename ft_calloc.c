@@ -6,7 +6,7 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 09:59:32 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/17 16:16:42 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/21 17:32:25 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,22 @@
 
 void	*ft_calloc(size_t nelem, size_t elsize)
 {
-	void	*ptr;
+	unsigned char	*ptr;
+	size_t			i;
 
-	ptr = malloc((nelem + 1) * elsize);
+	ptr = malloc(nelem * elsize);
 	if (ptr == NULL)
 		return (NULL);
+	i = 0;
+	while (i < nelem * elsize)
+		ptr[i++] = 0;
 	return ((char *)ptr);
 }
 
 /*int	main(void)
 {
-	size_t	nelem = 5;
-	size_t	elsize = sizeof(char);
+	size_t	nelem = 0;
+	size_t	elsize = sizeof(int);
 	char	*result;
 	char	*result2;
 

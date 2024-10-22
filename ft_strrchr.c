@@ -6,7 +6,7 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 10:01:33 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/17 16:11:58 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/21 15:20:03 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,27 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t	i;
+	size_t			i;
+	unsigned char	c_;
+	char			*result;
 
-	c = (unsigned char)c;
+	c_ = (unsigned char)c;
 	if (c == '\0')
 		return ((char *)&s[ft_strlen(s)]);
-	i = ft_strlen(s);
-	while (i > 0)
+	result = NULL;
+	i = 0;
+	while (s[i])
 	{
-		if (s[i] == c)
-			return ((char *)&s[i]);
-		i --;
+		if (s[i] == c_)
+			result = (char *)&s[i];
+		i ++;
 	}
-	return (NULL);
+	return (result);
 }
 
 /*int	main(void)
 {
-	const char	s[7] = "ABCDCF";
+	const char	s[7] = "CBDCF";
 	int			c = 67;
 	char		*result;
    

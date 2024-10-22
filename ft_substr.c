@@ -6,7 +6,7 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 10:01:51 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/17 16:17:39 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/21 14:45:30 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	j;
 
+	if (s == NULL)
+		return (NULL);
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
 	result = (char *) malloc((len + 1) * sizeof(char));
 	if (result == NULL)
 		return (NULL);
@@ -36,11 +40,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 /*int	main(void)
 {
-	char			s[] = "ah bah voila";
+	char			s[] = "ah";
 	unsigned int	start = 3;
 	size_t			len = 3;
 	char			*result;
 
 	result = ft_substr(s, start, len);
-	printf("%s", result);
+	printf("\n%s", result);
 }*/

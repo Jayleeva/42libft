@@ -6,7 +6,7 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 13:53:22 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/17 16:32:59 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/21 13:52:46 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,28 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*str;
-	int		i;
+	int	nbr;
 
-	str = ft_itoa(n);
-	i = 0;
-	while (str[i])
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else if (n < 0)
 	{
-		write(fd, &str[i], 1);
-		i ++;
+		write(fd, "-", 1);
+		n = n * -1;
+		ft_putnbr_fd(n, fd);
+	}
+	else
+	{	
+		if (n > 9)
+		{	
+			ft_putnbr_fd(n / 10, fd);
+			ft_putnbr_fd(n % 10, fd);
+		}
+		else
+		{
+			nbr = n + '0';
+			write(fd, &nbr, 1);
+		}
 	}
 }
 

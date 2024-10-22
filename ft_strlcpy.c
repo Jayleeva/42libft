@@ -6,7 +6,7 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 10:21:05 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/17 16:09:23 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/21 14:53:43 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,17 @@
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 {
-	size_t	i;
+	size_t	len;
 
-	i = 0;
-	while (i < dstsize && src[i])
+	len = ft_strlen(src);
+	if (len +1 < dstsize)
+		ft_memcpy(dest, src, len +1);
+	else if (dstsize != 0)
 	{
-		dest[i] = src[i];
-		i ++;
+		ft_memcpy(dest, src, dstsize -1);
+		dest[dstsize -1] = '\0';
 	}
-	if (dstsize != 0)
-		dest[i -1] = '\0';
-	i = ft_strlen(src);
-	return (i);
+	return (len);
 }
 
 /*int	main(void)

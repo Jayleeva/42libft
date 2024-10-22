@@ -6,7 +6,7 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 10:46:48 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/17 16:21:03 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/22 10:33:57 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,26 +31,27 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t		start;
 	size_t		end;
-	char		*copy;
+	size_t		len;
+	char		*result;
 
-	copy = (char *) malloc((ft_strlen(s1) + 1) * sizeof(char));
-	if (copy == NULL)
-		return (NULL);
-	copy = (char *)s1;
-	end = ft_strlen(copy) -1;
+	end = ft_strlen(s1) -1;
 	start = 0;
-	while (is_in_set(set, copy[start]) == 1)
+	while (is_in_set(set, s1[start]) == 1)
 		start ++;
-	while (is_in_set(set, copy[end]) == 1)
+	while (is_in_set(set, s1[end]) == 1)
 		end --;
-	copy = ft_substr(copy, start, end - start + 1);
-	return (copy);
+	len = end - start;
+	result = (char *)malloc((len + 1) * sizeof(char));
+	if (result == NULL)
+		return (NULL);
+	result = ft_substr(s1, start, len + 1);
+	return (result);
 }
 
 /*int	main(void)
 {
-	const char	s1[] = "?!?ah bah? voila?!?!";
-	const char	set[] = "?!";
+	const char	s1[] = "  \t \t \n   \n\n\n\t";
+	const char	set[] = " \n\t";
 	char		*result;
 
 	result = ft_strtrim(s1, set);

@@ -6,7 +6,7 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 09:21:42 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/17 16:08:41 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/21 13:28:06 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	char		*dest_;
 	const char	*src_;
 
+	if (dest == NULL && src == NULL)
+		return (NULL);
 	dest_ = dest;
 	src_ = src;
 	i = 0;

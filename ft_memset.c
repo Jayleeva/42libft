@@ -6,7 +6,7 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:07:54 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/17 16:06:11 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/21 13:28:55 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	*ft_memset(void *b, int c, size_t len)
 		b_[i] = (unsigned char)c;
 		i ++;
 	}
-	b_[i] = '\0';
 	return (b);
 }
 
