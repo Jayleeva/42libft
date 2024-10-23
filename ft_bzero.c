@@ -6,12 +6,11 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 16:27:20 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/17 16:07:58 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/23 12:33:16 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include <strings.h>
 //#include <stdio.h>
 
 void	ft_bzero(void *s, size_t n)

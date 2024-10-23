@@ -6,13 +6,13 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 11:20:19 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/17 16:31:12 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/23 12:40:33 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 //#include <stdio.h>
 
-/*static char	ft_toupper_(unsigned int i, char c)
+/*static char	toupper_(unsigned int i, char c)
 {
 	printf("%d", i);
 	if (c >= 'a' && c <= 'z')
@@ -46,6 +46,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	const char	s[] = "AbC";
 	char		*result;
 
-	result = ft_strmapi(s, ft_toupper_);
+	result = ft_strmapi(s, toupper_);
 	printf("\n%s", result);
 }*/

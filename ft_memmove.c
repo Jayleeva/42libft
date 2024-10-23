@@ -6,12 +6,11 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 09:32:03 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/22 17:33:47 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/23 12:35:49 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include <string.h>
 //#include <stdio.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)

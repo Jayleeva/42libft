@@ -6,12 +6,25 @@
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 09:33:08 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/23 11:28:02 by cyglardo         ###   ########.fr       */
+/*   Updated: 2024/10/23 12:47:08 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 //#include <stdio.h>
+
+static void	free_tab(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i ++;
+	}
+	free(tab);
+}
 
 static char	*fill_tab(const char *array, char c)
 {
@@ -46,19 +59,19 @@ char	**ft_split(char const *s, char c)
 	char	**tab;
 	int		i;
 	int		j;
-	int		nelem;
 
-	nelem = get_nelem(s, c);
-	tab = (char **)malloc((nelem +1) * sizeof(char *));
+	tab = (char **)malloc((get_nelem(s, c) + 1) * sizeof(char *));
 	if (tab == NULL)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (i < nelem && s[j])
+	while (i < get_nelem(s, c) && s[j])
 	{
 		if (s[j] != c)
 		{
 			tab[i] = fill_tab(s + j, c);
+			if (tab[i] == NULL)
+				return (free_tab(tab), NULL);
 			j = j + ft_strlen(tab[i]);
 			i ++;
 		}
