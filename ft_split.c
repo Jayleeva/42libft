@@ -5,96 +5,73 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyglardo <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 11:45:53 by cyglardo          #+#    #+#             */
-/*   Updated: 2024/10/22 17:46:46 by cyglardo         ###   ########.fr       */
+/*   Created: 2024/10/23 09:33:08 by cyglardo          #+#    #+#             */
+/*   Updated: 2024/10/23 11:28:02 by cyglardo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 //#include <stdio.h>
 
-static size_t	ft_strlen_to(const char *str, char c)
+static char	*fill_tab(const char *array, char c)
 {
-	size_t	i;
+	int		i;
+	char	*s;
 
 	i = 0;
-	while (str[i] != c)
-		i ++;
-	return (i);
-}
-
-static char	**fill_tab(char **tab, int nb, char const *s, char c)
-{
-	int	i;
-
-	i = 0;
-	while (i < nb)
-	{
-		tab[i] = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
-		if (tab[i] == NULL)
-			return (NULL);
+	while (array[i] != c && array[i])
 		i++;
-	}
-	tab[0] = (char *)s;
-	i = 1;
-	while (i < nb)
-	{
-		tab[i] = ft_strchr(tab[i -1], c) + 1; //si plusieurs sep a suivre, la couille
-		i ++;
-	}
-	i = 0;
-	while (i < nb)
-	{
-		tab[i] = ft_substr(tab[i], 0, ft_strlen_to(tab[i], c));
-		i ++;
-	}
-	return (tab);
+	s = ft_substr(array, 0, i);
+	return (s);
 }
 
-static char	**clean_tab(char **result, char **tab, int nb)
+static int	get_nelem(char const *s, char c)
 {
+	int	nelem;
 	int	i;
 
 	i = 0;
-	while (i < nb)
+	nelem = 0;
+	while (s[i])
 	{
-		result[i] = ft_strdup(tab[i]);
-		free(tab[i]);
+		if ((i == 0 || s[i -1] == c) && s[i] != c)
+			nelem ++;
 		i ++;
 	}
-	return (result);
+	return (nelem);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
-	char	**result;
 	int		i;
-	int		nb;
+	int		j;
+	int		nelem;
 
-	i = 0;
-	nb = 0;
-	while (s[i])
-	{
-		if ((i == 0 || s[i -1] == c) && s[i] != c)
-			nb ++;
-		i ++;
-	}
-	tab = (char **)malloc((nb + 1) * sizeof(char *));
+	nelem = get_nelem(s, c);
+	tab = (char **)malloc((nelem +1) * sizeof(char *));
 	if (tab == NULL)
 		return (NULL);
-	tab = fill_tab(tab, nb, s, c);
-	result = (char **)malloc((nb + 1) * sizeof(char *));
-	if (result == NULL)
-		return (NULL);
-	result = clean_tab(result, tab, nb);
-	free(tab);
-	return (result);
+	i = 0;
+	j = 0;
+	while (i < nelem && s[j])
+	{
+		if (s[j] != c)
+		{
+			tab[i] = fill_tab(s + j, c);
+			j = j + ft_strlen(tab[i]);
+			i ++;
+		}
+		else
+			j++;
+	}
+	tab[i] = NULL;
+	return (tab);
 }
 
 /*int	main(void)
 {
-	char const	s[] = "Salut ca va?|-Non et toi?|-Bien merci.|-Cool.";
+	char const	s[] = "Salut ca va?||-Non et toi?|-Bien merci.|||-Cool.";
 	char		c = '|';
 	char		**result;
 	int			i;
