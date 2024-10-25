@@ -51,7 +51,7 @@ La cible **clean** sert à nettoyer les fichiers dont on n'a plus besoin. Dans m
 
 La cible **fclean** sert à nettoyer le programme lui-même une fois qu'on n'en a plus besoin, c'est-à-dire lorsque des modifications ont été faites et qu'il est recompilé. Pour cela, il doit d'abord nettoyer mes fichiers .o, c'est pourquoi **clean** est une dépendance de **fclean**.
 
-La cible **re** sert à éviter que le Makefile relink. C'est lui qui va lancer le **fclean** (qui lui-même lancera le **clean**) sur **all**, pour s'assurer que tout est effacé avant d'être recréé lorsqu'il y a eu des changements et recompilation. 
+La cible **re** sert à éviter que le Makefile relink. C'est lui qui va lancer le **fclean** (qui lui-même lancera le **clean**) sur **all**, pour s'assurer que tout est effacé avant d'être recréé lorsqu'il y a eu changements et recompilation. 
 
 La commande **ar** crée une archive des fichiers qui lui sont donnés comme sources. Le flag **rcs** sert à: remplacer les fichiers s'il y en a de nouveaux (r), créer la librairie si elle n'existe pas déjà (c), et créer un index à l'intérieur pour accéder aux fonctions plus facilement (s). On les utilise dans une règle appliquée à NAME: pour créer libft.a (cible), on a besoin des sources (dépendances). 
 
@@ -65,7 +65,7 @@ ainsi, vous n'aurez plus qu'à écrire:
 ```
 cc $(CFLAGS)
 ```
-au lieu de les retaper entièrement à chaque fois que vous voudrez écrire une règle de compilation et de potentiellement en modifier chaque itération si vous décidez de les changer. Cependant, dans ce projet, nous n'en avons besoin qu'une seule fois, et il n'y pas de raisons de les changer puisqu'ils sont obligatoires, ce n'est donc pas vraiment nécessaire. A vous de voir!
+au lieu de les retaper entièrement à chaque fois que vous voudrez écrire une règle de compilation et de potentiellement en modifier chaque itération si vous décidez de les changer. Cependant, dans ce projet, nous n'en avons besoin qu'une seule fois, et il n'y pas de raison de les changer puisqu'ils sont obligatoires, ce n'est donc pas vraiment nécessaire. A vous de voir!
 
 Je ne sais pas si il est obligatoire de créer des fichiers .o; j'ai trouvé cette option et l'ai appliquée. Pour cela, j'ai créé une variable SRC à laquelle j'ai assigné tous mes fichiers .c (j'ai évité la wildcard car bien qu'autorisée, elle demande de la prudence dans son utilisation), puis une variable OBJ à laquelle j'ai assigné $(SRC:.c=.o), ce qui permet de copier les noms des fichiers .c en changeant leur extension en .o, m'évitant ainsi de tout recopier à chaque modification et potentiellement me tromper. Ensuite, je les ai inclus dans la règle qui compile mes fichiers .c en mettant les .o comme cible et les .c comme dépendances avec le header: 
 ```
