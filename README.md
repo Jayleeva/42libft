@@ -118,7 +118,7 @@ Une chaîne de caractères variable et une constante sont créées et prennent l
 
 Même chose que la fonction précédente, à une différence. Dans la boucle, une condition vérifie si la source est placée avant la destination dans la mémoire. Si c'est le cas, pour éviter d'effacer la source en modifiant la destination, la copie se fait dans le sens inverse, en partant de la fin au lieu de partir du début. Sinon, elle se fait comme précédemment.
 ## strlcpy
-**Fait appel à memcpy (et memmove ?!?) pour copier une source dans une destination**
+**Fait appel à memcpy *//(et memmove ?!?)//* pour copier une source dans une destination**
 
 La fonction memcpy est appelée en passant des arguments différents selon la longueur de la source reçue en argument et celle du size_t reçu en argument (correspondant à la longueur totale que la destination aura à la fin de la fonction). Si cette longueur + 1 est plus petite que le size_t reçu, on passe la longueur + 1 comme dernier argument. Si le size_t reçu est différent de 0, on passe le size_t -1 en dernier argument, et on assigne '\0' au dernier byte de la destination. La fonction retourne la longueur de la source. *// En fonction de si la source est placée avant la destination dans la mémoire, on appelle soit la fonction memcpy soit la fonction memmove ?!? //*
 ## strlcat
@@ -133,10 +133,19 @@ Une condition vérifie si l'int reçu en argument correspond à une lettre minus
 
 ## tolower
 **Vérifie si l'int reçu correspond à une lettre majuscule et si oui, la transforme en minuscule.**
+
 Une condition vérifie si l'int reçu en argument correspond à une lettre majuscule. Si c'est le cas, on l'incrémente de 32 afin de le transformer en minuscule. La fonction retourne l'int reçu.
 
 ## strchr
+**Cherche la première itération du int reçu dans la chaîne de caractères reçue**
+
+Le int reçu est cast en unsigned char. Une condition vérifie si ce unsigned char est un '\0'. Si c'est le cas, la fonction s'arrête et retourne le dernier caractère de la chaîne reçue, calculé par strlen et casté en char * puisque la chaîne est une constante. Sinon, une boucle vérifie si le char indexé correspond au int reçu et incrémente l'index. Si c'est le cas, la fonction s'arrête et retourne le char indexé, casté en char * (l'int reçu a été trouvé). La  boucle tourne tant que la chaîne reçue n'a pas été entièrement parcourue. Une fois la condition de sortie remplie, la fonction s'arrête et retourne NULL (l'int reçu n'a pas été trouvé).
+
 ## strrchr
+**Cherche la dernière itération du int reçu dans la chaîne de caractères reçue**
+
+Même logique que strchr, à quelques différences. Une variable qui servira à retourner le résultat est créée et on l'initialise à NULL; la boucle tourne tant que l'index est plus petit ou égal à la longueur de la chaîne reçue (mesurée avec strlen); si le char indexé correspond au int reçu, le pointeur est assigné à la variable de retour, ce qui permet de mettre à jour le char indexé à chaque fois qu'on tombe sur l'int recherché. Une fois la condition de sortie remplie, la fonction s'arrête et retourne la variable de retour (si aucune itération du int reçu n'a été trouvé, la valeur retournée sera NULL, sinon, on retourne l'adresse de la dernière itération).
+
 ## strncmp
 ## memchr
 ## memcmp
