@@ -139,7 +139,7 @@ Une condition vérifie si l'int reçu en argument correspond à une lettre majus
 ## strchr
 **Cherche la première itération du int reçu dans la chaîne de caractères reçue**
 
-Le int reçu est cast en unsigned char. Une condition vérifie si ce unsigned char est un '\0'. Si c'est le cas, la fonction s'arrête et retourne le dernier caractère de la chaîne reçue, calculé par strlen et casté en char * puisque la chaîne est une constante. Sinon, une boucle vérifie si le char indexé correspond au int reçu et incrémente l'index. Si c'est le cas, la fonction s'arrête et retourne le char indexé, casté en char * (l'int reçu a été trouvé). La  boucle tourne tant que la chaîne reçue n'a pas été entièrement parcourue. Une fois la condition de sortie remplie, la fonction s'arrête et retourne NULL (l'int reçu n'a pas été trouvé).
+Le int reçu est cast en unsigned char. Une condition vérifie si ce unsigned char est un '\0'. Si c'est le cas, la fonction s'arrête et retourne le dernier caractère de la chaîne reçue, calculé par strlen et casté en char * puisque la chaîne est une constante. Sinon, une boucle while vérifie si le char indexé correspond au int reçu et incrémente l'index. Si c'est le cas, la fonction s'arrête et retourne le char indexé, casté en char * (l'int reçu a été trouvé). La  boucle tourne tant que la chaîne reçue n'a pas été entièrement parcourue. Une fois la condition de sortie remplie, la fonction s'arrête et retourne NULL (l'int reçu n'a pas été trouvé).
 
 ## strrchr
 **Cherche la dernière itération du int reçu dans la chaîne de caractères reçue**
@@ -149,10 +149,18 @@ Même logique que strchr, à quelques différences. Une variable qui servira à 
 ## strncmp
 **Compare les chaînes de caractères reçues du 1er au nombre de bytes reçu**
 
-Une boucle compare le char indexé de la chaîne 1 avec celui de la chaîne 2, puis incrémente l'index. Si l'un est différent de l'autre, la fonction s'arrête et retourne la substraction du 2ème au 1er (les n premiers caractères des deux chaînes ne sont pas identiques). La boucle tourne tant qu'au moins une des deux chaînes n'a pas été entièrement parcourue, ET tant que l'index est plus petit que le nombre de bytes reçu. Une fois la condition de sortie remplie, la fontion s'arrête et retourne 0 (les n premiers caractères des deux chaînes sont identiques).
+Une boucle while compare le char indexé de la chaîne 1 avec celui de la chaîne 2, puis incrémente l'index. Si l'un est différent de l'autre, la fonction s'arrête et retourne la substraction du 2ème au 1er (les n premiers caractères des deux chaînes ne sont pas identiques). La boucle tourne tant qu'au moins une des deux chaînes n'a pas été entièrement parcourue, ET tant que l'index est plus petit que le nombre de bytes reçu. Une fois la condition de sortie remplie, la fontion s'arrête et retourne 0 (les n premiers caractères des deux chaînes sont identiques).
 
 ## memchr
+**Cherche la première itération du int reçu dans le pointeur reçu, de son 1er au nombre reçu de bytes**
+
+Une variable de type const char* est créée et prend la valeur du pointeur reçu en argument. Le int reçu est cast en unsigned char. Une boucle while exécute une condition qui vérifie si le char indexé est identique au int casté en unsigned char, et incrémente l'index. Si c'est le cas, la fonction s'arrête et retourne l'adresse du char indexé, castée en void * (l'int reçu a été trouvé). La boucle tourne tant que l'index est plus petit que le nombre de bytes reçu. Une fois la condition de sortie remplie, la fonction s'arrête et retourne NULL (l'int reçu n'a pas été trouvé).
+
 ## memcmp
+**Compare les pointeurs reçus du 1er au nombre de bytes reçu**
+
+Même logique que strncmp, à une différence. Deux char * sont créés et prennent la valeur des pointeurs reçus en arguments, castés en char *. C'est ces chaînes de caractères qui seront comparées.
+
 ## strnstr
 ## atoi
 ## calloc
