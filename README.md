@@ -40,7 +40,5 @@ Basiquement, un Makefile est composé de cibles, de dépendances et de règles. 
 NOM_VARIABLE1 = variable1
 
 Cible : Dépendance1 Dépendance2
-    Règle
+    commande $(NOM_VARIABLE1)
 ```
-
-
