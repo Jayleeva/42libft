@@ -105,7 +105,7 @@ Une boucle while incrémente un size_t tant que la chaîne de caractères reçue
 
 Une chaîne de caractères est créée et prend la valeur du pointeur sur void reçu en argument. Une boucle while cast en unsigned char le int reçu en argument et en assigne la valeur à l'endroit indexé de la chaîne de caractères, et incrémente l'index. Elle tourne tant que l'index est plus petit que le size_t reçu en argument. Une fois la condition de sortie remplie, le pointeur reçu est retourné; son contenu a été remplacé par le int reçu sur le size_t reçu de bytes.
 ## bzero
-**Assigne la valeur '\0' dans le pointeur reçu de son 1er au nombre reçu de byte**
+**Assigne la valeur '\0' dans le pointeur reçu de son 1er au nombre reçu de bytes**
 
 Une chaîne de caractères est créée et prend la valeur du pointeur sur void reçu en argument. Une boucle while assigne '\0' à l'endroit indexé de la chaîne de charactères. Elle tourne tant que l'index est plus petit que le size_t reçu en argument. Une fois la condition de sortie remplie, rien n'est retourné. Le contenu du pointeur a été remplacé par '\0' sur le size_t reçu de bytes.
 ## memcpy
