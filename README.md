@@ -125,3 +125,25 @@ La fonction memcpy est appelée en passant des arguments différents selon la lo
 **Concatène les chaînes de caractères reçues jusqu'au nombre reçu de bytes**
 
 La fonction strlen est appelée pour mesurer la longueur de la destination reçue en arguments. Une condition vérifie si le size_t reçu en argument (correspondant à la longueur totale que la destination aura à la la fin de la fonction) est plus petit ou égal à la longueur de la destination intitiale. Si c'est le cas, la fonction s'arrête et retourne l'addition de la longueur de la source (mesurée avec strlen) et du size_t reçu. Sinon, une boucle while assigne la valeur à l'endroit indexé de la source à l'endroit indexé de la destination et incrémente l'index de la source. L'index de la destination est la somme de la longueur de la destination initiale et de l'index de la source, ce qui permet de copier la source à la suite de la destination initiale. La boucle tourne tant que la source n'a pas été entièrement parcourue ET tant que l'index de la source est plus petit que la longueur reçue en argument moins la longueur de la destination initiale moins 1. Une fois la condition de sortie remplie, une condition vérifie si la longueur reçue est différente de 0. Si c'est le cas, la valeur '\0' est ajoutée à l'endroit indexé de la destination. La fonction retourne l'addition des longueurs de la destination et de la source.
+
+## toupper
+**Vérifie si l'int reçu correspond à une lettre minuscule et si oui, la transforme en majuscule.**
+
+Une condition vérifie si l'int reçu en argument correspond à une lettre minuscule. Si c'est le cas, on le décrémente de 32 afin de le transformer en majuscule. La fonction retourne l'int reçu.
+
+## tolower
+**Vérifie si l'int reçu correspond à une lettre majuscule et si oui, la transforme en minuscule.**
+Une condition vérifie si l'int reçu en argument correspond à une lettre majuscule. Si c'est le cas, on l'incrémente de 32 afin de le transformer en minuscule. La fonction retourne l'int reçu.
+
+## strchr
+## strrchr
+## strncmp
+## memchr
+## memcmp
+## strnstr
+## atoi
+## calloc
+La fonction malloc est autorisée.
+## strdup
+La fonction malloc est autorisée.
+
