@@ -149,6 +149,7 @@ Même logique que strchr, à quelques différences. Une variable qui servira à 
 ## strncmp
 **Compare les chaînes de caractères reçues du 1er au nombre de bytes reçu**
 
+Une boucle compare le char indexé de la chaîne 1 avec celui de la chaîne 2, puis incrémente l'index. Si l'un est différent de l'autre, la fonction s'arrête et retourne la substraction du 1er au 2ème (les deux chaînes ne sont pas identiques). La boucle tourne tant qu'au moins une des deux chaînes n'a pas été entièrement parcourue, ET tant que l'index est plus petit que le nombre de bytes reçu. Une fois la condition de sortie remplie, la fontion s'arrête et retourne 0 (les deux chaînes sont identiques).
 
 ## memchr
 ## memcmp
