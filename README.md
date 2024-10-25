@@ -33,6 +33,7 @@ Il y a de nombreuses façons d'écrire un Makefile. Les consignes de 42 exigent 
 - Ecrire son Makefile de façon à ce qu'il ne relink pas, c'est-à-dire qu'il ne recompile pas si aucun fichier n'a été modifié et vous le signale via le message suivant dans la sortie : "make: 'votre_fichier' is up to date". Vous pouvez vérifier si votre Makefile relink en lançant simplement la commande "make" plusieurs fois de suite sans modifier aucun fichier. S'il recompile, il "relink".
 - Des règles doivent être spécifiées pour $(NAME), all, clean, fclean, et re.
 - Le Makefile doit compiler le programme avec les flags -Wall -Wextra -Werror (comme toujours à 42).
+- La librairie doit être créée avec la commande ar et non libtool.
 
 Basiquement, un Makefile est composé de cibles, de dépendances et de règles. Chaque cible a des règles qui s'appliquent à elle, et peut avoir des dépendances. Pour A, on a besoin de B : B est donc une dépendance de A. On peut optimiser notre fichier en utilisant des variables, généralement nommées en majuscules. Voici la syntaxe générale:
 
@@ -46,11 +47,13 @@ La variable NAME définira le nom de votre programme, ici libft.a.
 
 La cible **all** sert à nommer tous les fichiers que vous voulez que votre Makefile crée. Ici, nous n'en avons besoin que d'un, libft.a, soit $(NAME).
 
-La cible **clean** sert à nettoyer les fichiers dont on n'a plus besoin. Ici, il s'agit des fichiers .o (objets) qui seront créés lors d'une première compilation; si vous modifiez un ou plusieurs fichiers .c et relancez la commande make, le Makefile saura qu'il doit d'abord nettoyer les .o avant d'en recréer.
+La cible **clean** sert à nettoyer les fichiers dont on n'a plus besoin. Dans mon Makefile, il s'agit des fichiers .o (objets) qui seront créés lors d'une première compilation sur la base de mes fichiers .c; si je modifie un ou plusieurs fichiers .c et relance la commande make, le Makefile saura qu'il doit d'abord nettoyer les .o avant d'en recréer.
 
-La cible **fclean** sert à nettoyer le programme lui-même une fois qu'on n'en a plus besoin, c'est-à-dire lorsque des modifications ont été faites et qu'il est recompilé. Pour cela, il doit d'abord nettoyer les fichiers .o, c'est pourquoi **clean** est une dépendance de **fclean**.
+La cible **fclean** sert à nettoyer le programme lui-même une fois qu'on n'en a plus besoin, c'est-à-dire lorsque des modifications ont été faites et qu'il est recompilé. Pour cela, il doit d'abord nettoyer mes fichiers .o, c'est pourquoi **clean** est une dépendance de **fclean**.
 
 La cible **re** sert à éviter que le Makefile relink. C'est lui qui va lancer le **fclean** (qui lui-même lancera le **clean**) sur **all**, pour s'assurer que tout est effacé avant d'être recréé lorsqu'il y a eu des changements et recompilation. 
+
+La commande **ar** crée une archive des fichiers qui lui sont donnés comme sources. Le flag rcs sert à (?). On les utilise dans une règle appliquée à NAME: pour créer libft.a (cible), on a besoin des sources (dépendances).
 
 Voilà pour les obligations. Pour le reste, vous êtes libres d'organiser votre Makefile comme vous le souhaitez.
 
@@ -63,3 +66,9 @@ ainsi, vous n'aurez plus qu'à écrire:
 cc $(CFLAGS)
 ```
 au lieu de les retaper entièrement à chaque fois que vous voudrez écrire une règle de compilation et de potentiellement en modifier chaque itération si vous décidez de les changer. Cependant, dans ce projet, nous n'en avons besoin qu'une seule fois, et il n'y pas de raisons de les changer puisqu'ils sont obligatoires, ce n'est donc pas vraiment nécessaire. A vous de voir!
+
+Je ne sais pas si il est obligatoire de créer des fichiers .o; j'ai trouvé cette option et l'ai appliquée. Pour cela, j'ai créé une variable SRC à laquelle j'ai assigné tous mes fichiers .c (j'ai évité la wildcard car bien qu'autorisée, elle demande de la prudence dans son utilisation), puis une variable OBJ à laquelle j'ai assigné la commande $(SRC:.c=.o) qui permet de copier les noms des fichiers .c en changeant leur extension en .o, ce qui évite de recopier à chaque modification et potentiellement se tromper. Ensuite, je les ai inclus dans la règle qui compile mes fichiers .c en mettant les .o comme cible et les .c comme dépendances avec le header: 
+```
+%.o : %.c libft.h
+```
+Le % permet d'appliquer la règle sur tous les fichiers se finissant par ce qui le suit, ici .o puis .c. Ainsi, pour créer chaque fichier .o, le Makefile sait qu'il doit chercher le .c correspondant ainsi que le header pour appliquer la règle qui suit.
