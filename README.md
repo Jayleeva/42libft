@@ -77,26 +77,50 @@ Reste le **.PHONY**. A nouveau, je ne sais pas s'il est obligatoire, mais j'ai p
 
 # Première partie
 ## isalpha
-Une condition vérifie si le int reçu en argument correspond à un char alphabétique (majuscule ou minuscule). Si c'est le cas, la fonction renvoie 1, sinon, elle renvoie 0.
+**Vérifie si l'argument reçu correspond à un char alphabétique (majuscule ou minuscule)**
+
+Une condition vérifie si le int reçu en argument correspond à un char alphabétique. Si c'est le cas, la fonction renvoie 1, sinon, elle renvoie 0.
 ## isdigit
+**Vérifie si l'argument reçu correspond à un char numérique (de 0 à 9)**
+
 Une condition vérifie si le int reçu en argument correspond à un char numérique. Si c'est le cas, la fonction renvoie 1, sinon, elle renvoie 0.
 ## isalnum
+**Vérifie si l'argument reçu correspond à un char alphanumérique (alphabétique ou numérique)**
+
 Une condition vérifie si le int reçu en argument correspond à un char alphanumérique (alphabétique ou numérique). Si c'est le cas, la fonction renvoie 1, sinon, elle renvoie 0. J'ai utilisé les fonctions précédentes au lieu de les réécrire entièrement. Les lecteurs attentifs verront que j'ai mis comme condition : "si le retour de ft_isalpha est non nul" au lieu de "est égal à 1". C'est parce qu'en réalité, is_alpha peut donner des résultats non nuls différents de 1 en fonction de l'environnement sur lequel elle est appelée. Vu que nos projets ne sont testés que sur Mac, il n'est pas nécessaire de s'en soucier, mais je l'ai laissé tel quel pour me rappeler de cette spécificité.
 ## isascii
+**Vérifie si l'argument reçu correspond à un char de la table ascii**
+
 Une condition vérifie si le int reçu en argument correspond à un char présent sur la table ascii. Si c'est le cas, la fonction renvoie 1, sinon, elle renvoie 0.
 ## isprint
+**Vérifie si l'argument reçu correspond à un char imprimable**
+
 Une condition vérifie si le int reçu en argument correspond à un char imprimable. Si c'est le cas, la fonction renvoie 1, sinon, elle renvoie 0.
 ## strlen
+**Mesure la longueur de l'argument reçu.**
+
 Une boucle while incrémente un size_t tant que la chaîne de caractères reçue en argument n'a pas été parcourue entièrement. Une fois la condition de sortie remplie, la fonction renvoie le size_t incrémenté, soit la longueur de la chaîne reçue.
 ## memset
+**Assigne le int reçu dans le pointeur reçu de son 1er au nombre reçu de bytes.**
+
 Une chaîne de caractères est créée et prend la valeur du pointeur sur void reçu en argument. Une boucle while cast en unsigned char le int reçu en argument et en assigne la valeur à l'endroit indexé de la chaîne de caractères, et incrémente l'index. Elle tourne tant que l'index est plus petit que le size_t reçu en argument. Une fois la condition de sortie remplie, le pointeur reçu est retourné; son contenu a été remplacé par le int reçu sur le size_t reçu de bytes.
 ## bzero
+**Assigne la valeur '\0' dans le pointeur reçu de son 1er au nombre reçu de bytes.**
+
 Une chaîne de caractères est créée et prend la valeur du pointeur sur void reçu en argument. Une boucle while assigne '\0' à l'endroit indexé de la chaîne de charactères. Elle tourne tant que l'index est plus petit que le size_t reçu en argument. Une fois la condition de sortie remplie, rien n'est retourné. Le contenu du pointeur a été remplacé par '\0' sur le size_t reçu de bytes.
 ## memcpy
+**Assigne la valeur des bytes de la source reçue dans le pointeur de la destination de son 1er au nombre reçu de bytes.**
+
 Une chaîne de caractères variable et une constante sont créées et prennent la valeur des pointeurs sur void reçus en arguments (destination et source). Une condition vérifie si ET la destination ET la source sont nulles, si c'est le cas, la fonction renvoie NULL et s'arrête, sinon, elle poursuit. Une boucle while assigne à l'endroit indexé de la destination la valeur de l'endroit indexé de la source, et incrémente l'index. Elle tourne tant que l'index est plus petit que le size_t reçu en argument. Une fois la condition de sortie remplie, la fonction renvoie le pointeur sur la destination. Son contenu a été remplacé par celui de la source, sur le size_t reçu de bytes. FAIBLESSE: en cas de chevauchement, le comportement est indéfini.
 ## memmove
+**Idem, mais en parant aux chevauchements, en changeant l'ordre de l'assignation (part du nombre reçu de bytes et va jusqu'au 1er).**
+
 Même chose que la fonction précédente, à une différence. Dans la boucle, une condition vérifie si la source est placée avant la destination dans la mémoire. Si c'est le cas, pour éviter d'effacer la source en modifiant la destination, la copie se fait dans le sens inverse, en partant de la fin au lieu de partir du début. Sinon, elle se fait comme précédemment.
 ## strlcpy
+**Fait appel à memcpy (et memmove ?!?) pour copier une source dans une destination.**
+
 La fonction memcpy est appelée en passant des arguments différents selon la longueur de la source reçue en argument et celle du size_t reçu en argument (correspondant à la longueur totale que la destination aura à la fin de la fonction). Si cette longueur + 1 est plus petite que le size_t reçu, on passe la longueur + 1 comme dernier argument. Si le size_t reçu est différent de 0, on passe le size_t -1 en dernier argument, et on assigne '\0' au dernier byte de la destination. La fonction renvoie la longueur de la source. *// En fonction de si la source est placée avant la destination dans la mémoire, on appelle soit la fonction memcpy soit la fonction memmove ?!? //*
 ## strlcat
+**Concatène les chaînes de caractères reçues jusqu'au nombre de bytes reçu.**
+
 La fonction strlen est appelée pour mesurer la longueur de la destination reçue en arguments. Une condition vérifie si le size_t reçu en argument (correspondant à la longueur totale que la destination aura à la la fin de la fonction) est plus petit ou égal à la longueur de la destination. Si c'est le cas, la fonction retourne l'addition de la longueur de la source (mesurée avec strlen) et du size_t reçu, puis s'arrête. Sinon, une boucle while assigne la valeur à l'endroit indexé de la source à l'endroit indexé de la destination et incrémente l'index de la source. L'index de la destination est la somme de la longueur de la destination initiale et de l'index de la source, ce qui permet de copier la source à la suite de la destination initiale. La boucle tourne tant que la source n'a pas été entièrement parcourue ET tant que l'index de la source est plus petit que la longueur reçue en argument - la longueur de la destination initiale -1. Une fois la condition de sortie remplie, une condition vérifie si la longueur reçue est différente de 0. Si c'est le cas, la valeur '\0' est ajoutée à l'endroit indexé de la destination. La fonction retourne l'addition des longueurs de la destination et de la source.
