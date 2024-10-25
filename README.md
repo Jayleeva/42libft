@@ -79,39 +79,40 @@ Reste le **.PHONY**. A nouveau, je ne sais pas s'il est obligatoire, mais j'ai p
 ## isalpha
 **Vérifie si l'argument reçu correspond à un char alphabétique (majuscule ou minuscule)**
 
-Une condition vérifie si le int reçu en argument correspond à un char alphabétique. Si c'est le cas, la fonction renvoie 1, sinon, elle renvoie 0.
+Une condition vérifie si le int reçu en argument correspond à un char alphabétique. Si c'est le cas, la fonction retourne 1, sinon, elle retourne 0.
 ## isdigit
 **Vérifie si l'argument reçu correspond à un char numérique (de 0 à 9)**
 
-Une condition vérifie si le int reçu en argument correspond à un char numérique. Si c'est le cas, la fonction renvoie 1, sinon, elle renvoie 0.
+Une condition vérifie si le int reçu en argument correspond à un char numérique. Si c'est le cas, la fonction retourne 1, sinon, elle retourne 0.
 ## isalnum
 **Vérifie si l'argument reçu correspond à un char alphanumérique (alphabétique ou numérique)**
 
-Une condition vérifie si le int reçu en argument correspond à un char alphanumérique (alphabétique ou numérique). Si c'est le cas, la fonction renvoie 1, sinon, elle renvoie 0. J'ai utilisé les fonctions précédentes au lieu de les réécrire entièrement. Les lecteurs attentifs verront que j'ai mis comme condition : "si le retour de ft_isalpha est non nul" au lieu de "est égal à 1". C'est parce qu'en réalité, is_alpha peut donner des résultats non nuls différents de 1 en fonction de l'environnement sur lequel elle est appelée. Vu que nos projets ne sont testés que sur Mac, il n'est pas nécessaire de s'en soucier, mais je l'ai laissé tel quel pour me rappeler de cette spécificité.
+Une condition vérifie si le int reçu en argument correspond à un char alphanumérique (alphabétique ou numérique). Si c'est le cas, la fonction retourne 1, sinon, elle retourne 0. 
+*J'ai utilisé les fonctions précédentes au lieu de les réécrire entièrement. Les lecteurs attentifs verront que j'ai mis comme condition : "si le retour de ft_isalpha est non nul" au lieu de "est égal à 1". C'est parce qu'en réalité, is_alpha peut donner des résultats non nuls différents de 1 en fonction de l'environnement sur lequel elle est appelée. Vu que nos projets ne sont testés que sur Mac, il n'est pas nécessaire de s'en soucier, mais je l'ai laissé tel quel pour me rappeler de cette spécificité.*
 ## isascii
 **Vérifie si l'argument reçu correspond à un char de la table ascii**
 
-Une condition vérifie si le int reçu en argument correspond à un char présent sur la table ascii. Si c'est le cas, la fonction renvoie 1, sinon, elle renvoie 0.
+Une condition vérifie si le int reçu en argument correspond à un char présent sur la table ascii. Si c'est le cas, la fonction retourne 1, sinon, elle retourne 0.
 ## isprint
 **Vérifie si l'argument reçu correspond à un char imprimable**
 
-Une condition vérifie si le int reçu en argument correspond à un char imprimable. Si c'est le cas, la fonction renvoie 1, sinon, elle renvoie 0.
+Une condition vérifie si le int reçu en argument correspond à un char imprimable. Si c'est le cas, la fonction retourne 1, sinon, elle retourne 0.
 ## strlen
 **Mesure la longueur de l'argument reçu**
 
-Une boucle while incrémente un size_t tant que la chaîne de caractères reçue en argument n'a pas été parcourue entièrement. Une fois la condition de sortie remplie, la fonction renvoie le size_t incrémenté, soit la longueur de la chaîne reçue.
+Une boucle while incrémente un index tant que la chaîne de caractères reçue en argument n'a pas été parcourue entièrement. Une fois la condition de sortie remplie, la fonction s'arrête. Elle retourne l'index, soit la longueur de la chaîne reçue.
 ## memset
 **Assigne le int reçu dans le pointeur reçu de son 1er au nombre reçu de bytes**
 
-Une chaîne de caractères est créée et prend la valeur du pointeur sur void reçu en argument. Une boucle while cast en unsigned char le int reçu en argument et en assigne la valeur à l'endroit indexé de la chaîne de caractères, et incrémente l'index. Elle tourne tant que l'index est plus petit que le size_t reçu en argument. Une fois la condition de sortie remplie, le pointeur reçu est retourné; son contenu a été remplacé par le int reçu sur le size_t reçu de bytes.
+Une chaîne de caractères est créée et prend la valeur du pointeur sur void reçu en argument. Une boucle while cast en unsigned char le int reçu en argument et en assigne la valeur à l'endroit indexé de la chaîne de caractères, et incrémente l'index. Elle tourne tant que l'index est plus petit que le size_t reçu en argument. Une fois la condition de sortie remplie, la fonction s'arrête. Elle retourne le pointeur reçu.
 ## bzero
 **Assigne la valeur '\0' dans le pointeur reçu de son 1er au nombre reçu de bytes**
 
-Une chaîne de caractères est créée et prend la valeur du pointeur sur void reçu en argument. Une boucle while assigne '\0' à l'endroit indexé de la chaîne de charactères, et incrémente l'index. Elle tourne tant que l'index est plus petit que le size_t reçu en argument. Une fois la condition de sortie remplie, rien n'est retourné. Le contenu du pointeur a été remplacé par '\0' sur le size_t reçu de bytes.
+Une chaîne de caractères est créée et prend la valeur du pointeur sur void reçu en argument. Une boucle while assigne '\0' à l'endroit indexé de la chaîne de charactères, et incrémente l'index. Elle tourne tant que l'index est plus petit que le size_t reçu en argument. Une fois la condition de sortie remplie, la fonction s'arrête. Elle ne retourne rien.
 ## memcpy
 **Assigne la valeur des bytes de la source reçue dans le pointeur de la destination de son 1er au nombre reçu de bytes**
 
-Une chaîne de caractères variable et une constante sont créées et prennent la valeur des pointeurs sur void reçus en arguments (destination et source). Une condition vérifie si ET la destination ET la source sont nulles, si c'est le cas, la fonction renvoie NULL et s'arrête, sinon, elle poursuit. Une boucle while assigne à l'endroit indexé de la destination la valeur de l'endroit indexé de la source, et incrémente l'index. Elle tourne tant que l'index est plus petit que le size_t reçu en argument. Une fois la condition de sortie remplie, la fonction renvoie le pointeur sur la destination. Son contenu a été remplacé par celui de la source, sur le size_t reçu de bytes. FAIBLESSE: en cas de chevauchement, le comportement est indéfini.
+Une chaîne de caractères variable et une constante sont créées et prennent la valeur des pointeurs sur void reçus en arguments (destination et source). Une condition vérifie si ET la destination ET la source sont nulles, si c'est le cas, la fonction renvoie NULL et s'arrête, sinon, elle poursuit. Une boucle while assigne à l'endroit indexé de la destination la valeur de l'endroit indexé de la source, et incrémente l'index. Elle tourne tant que l'index est plus petit que le size_t reçu en argument. Une fois la condition de sortie remplie, la fonction s'arrête. Elle retourne le pointeur sur la destination. FAIBLESSE: en cas de chevauchement, le comportement est indéfini.
 ## memmove
 **Idem, mais en parant aux chevauchements (part du nombre reçu de bytes et va jusqu'au 1er)**
 
@@ -119,7 +120,7 @@ Même chose que la fonction précédente, à une différence. Dans la boucle, un
 ## strlcpy
 **Fait appel à memcpy (et memmove ?!?) pour copier une source dans une destination**
 
-La fonction memcpy est appelée en passant des arguments différents selon la longueur de la source reçue en argument et celle du size_t reçu en argument (correspondant à la longueur totale que la destination aura à la fin de la fonction). Si cette longueur + 1 est plus petite que le size_t reçu, on passe la longueur + 1 comme dernier argument. Si le size_t reçu est différent de 0, on passe le size_t -1 en dernier argument, et on assigne '\0' au dernier byte de la destination. La fonction renvoie la longueur de la source. *// En fonction de si la source est placée avant la destination dans la mémoire, on appelle soit la fonction memcpy soit la fonction memmove ?!? //*
+La fonction memcpy est appelée en passant des arguments différents selon la longueur de la source reçue en argument et celle du size_t reçu en argument (correspondant à la longueur totale que la destination aura à la fin de la fonction). Si cette longueur + 1 est plus petite que le size_t reçu, on passe la longueur + 1 comme dernier argument. Si le size_t reçu est différent de 0, on passe le size_t -1 en dernier argument, et on assigne '\0' au dernier byte de la destination. La fonction retourne la longueur de la source. *// En fonction de si la source est placée avant la destination dans la mémoire, on appelle soit la fonction memcpy soit la fonction memmove ?!? //*
 ## strlcat
 **Concatène les chaînes de caractères reçues jusqu'au nombre reçu de bytes**
 
