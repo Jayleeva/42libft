@@ -144,7 +144,7 @@ Le int reçu est cast en unsigned char. Une condition vérifie si ce unsigned ch
 ## strrchr
 **Cherche la dernière itération du int reçu dans la chaîne de caractères reçue**
 
-Même logique que strchr, à quelques différences. Une variable qui servira à retourner le résultat est créée et on l'initialise à NULL; la boucle tourne tant que l'index est plus petit ou égal à la longueur de la chaîne reçue (mesurée avec strlen); si le char indexé correspond au int reçu, le pointeur est assigné à la variable de retour, ce qui permet de mettre à jour le char indexé à chaque fois qu'on tombe sur l'int recherché. Une fois la condition de sortie remplie, la fonction s'arrête et retourne la variable de retour (si aucune itération du int reçu n'a été trouvé, la valeur retournée sera NULL, sinon, on retourne l'adresse de la dernière itération).
+Même logique que strchr, à quelques différences. Une variable qui servira à retourner le résultat est créée et on l'initialise à NULL; la boucle tourne tant que l'index est plus petit ou égal à la longueur de la chaîne reçue (mesurée avec strlen); si le char indexé correspond au int reçu, le pointeur est assigné à la variable de retour, ce qui le met à jour à chaque fois qu'on tombe sur l'int recherché. Une fois la condition de sortie remplie, la fonction s'arrête et retourne la variable de retour (si aucune itération du int reçu n'a été trouvé, la valeur retournée sera NULL, sinon, on retourne l'adresse de la dernière itération).
 
 ## strncmp
 ## memchr
