@@ -53,7 +53,7 @@ La cible **fclean** sert à nettoyer le programme lui-même une fois qu'on n'en 
 
 La cible **re** sert à éviter que le Makefile relink. C'est lui qui va lancer le **fclean** (qui lui-même lancera le **clean**) sur **all**, pour s'assurer que tout est effacé avant d'être recréé lorsqu'il y a eu des changements et recompilation. 
 
-La commande **ar** crée une archive des fichiers qui lui sont donnés comme sources. Le flag rcs sert à: remplacer les fichiers s'il y en a de nouveaux (r), créer la librairie si elle n'existe pas déjà (c), et créer un index à l'intérieur pour accéder aux fonctions plus facilement (s). On les utilise dans une règle appliquée à NAME: pour créer libft.a (cible), on a besoin des sources (dépendances). 
+La commande **ar** crée une archive des fichiers qui lui sont donnés comme sources. Le flag **rcs** sert à: remplacer les fichiers s'il y en a de nouveaux (r), créer la librairie si elle n'existe pas déjà (c), et créer un index à l'intérieur pour accéder aux fonctions plus facilement (s). On les utilise dans une règle appliquée à NAME: pour créer libft.a (cible), on a besoin des sources (dépendances). 
 
 Voilà pour les obligations. Pour le reste, vous êtes libres d'organiser votre Makefile comme vous le souhaitez.
 
