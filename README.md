@@ -1,4 +1,4 @@
- < FONT size="20pt">Premier projet du cursus 42</FONT>
+Premier projet du cursus 42
 
 **Consignes:**
 Créer une librairie contenant des fonctions de base que l'on pourra réutiliser dans les projets suivants. 
