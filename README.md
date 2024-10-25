@@ -74,3 +74,29 @@ Je ne sais pas si il est obligatoire de créer des fichiers .o; j'ai trouvé cet
 Le % signifie "n'importe quelle suite de caractères", ce qui permet d'accéder à tous les fichiers dont les noms finissent par .o puis par .c. Ainsi, pour chaque fichier .o, le Makefile sait qu'il doit chercher le .c correspondant ainsi que le header pour appliquer la règle qui suit.
 
 Reste le **.PHONY**. A nouveau, je ne sais pas s'il est obligatoire, mais j'ai préféré l'utiliser pour parer à toute éventualité. Son rôle est lié à la façon dont fonctionne un Makefile: en effet, ce dernier se base sur la date de modification des fichiers pour savoir s'il doit recompiler lorsque la commande make est lancée ou si ce n'est pas nécessaire. Or, il est possible de changer ces dates sans effectuer de modification, ou de faire des modifications puis de changer la date pour faire croire qu'il n'y en a pas eu. Le **.PHONY** permet de contrer ce problème, bien que je n'aie pas compris comment exactement.
+
+# Première partie
+## isalpha
+Une condition vérifie si le int reçu en argument correspond à un char alphabétique (majuscule ou minuscule). Si c'est le cas, la fonction renvoie 1, sinon, elle renvoie 0.
+## isdigit
+Une condition vérifie si le int reçu en argument correspond à un char numérique. Si c'est le cas, la fonction renvoie 1, sinon, elle renvoie 0.
+## isalnum
+Une condition vérifie si le int reçu en argument correspond à un char alphanumérique (alphabétique ou numérique). Si c'est le cas, la fonction renvoie 1, sinon, elle renvoie 0. J'ai utilisé les fonctions précédentes au lieu de les réécrire entièrement. Les lecteurs attentifs verront que j'ai mis comme condition : "si le retour de ft_isalpha est non nul" au lieu de "est égal à 1". C'est parce qu'en réalité, is_alpha peut donner des résultats non nuls différents de 1 en fonction de l'environnement sur lequel elle est appelée. Vu que nos projets ne sont testés que sur Mac, il n'est pas nécessaire de s'en soucier, mais je l'ai laissé tel quel pour me rappeler de cette spécificité.
+## isascii
+Une condition vérifie si le int reçu en argument correspond à un char présent sur la table ascii. Si c'est le cas, la fonction renvoie 1, sinon, elle renvoie 0.
+## isprint
+Une condition vérifie si le int reçu en argument correspond à un char imprimable. Si c'est le cas, la fonction renvoie 1, sinon, elle renvoie 0.
+## strlen
+Une boucle while incrémente un size_t tant que la chaîne de caractères reçue en argument n'a pas été parcourue entièrement. Une fois la condition de sortie remplie, la fonction renvoie le size_t incrémenté, soit la longueur de la chaîne reçue.
+## memset
+Une chaîne de caractères est créée et prend la valeur du pointeur sur void reçu en argument. Une boucle while cast en unsigned char le int reçu en argument et en assigne la valeur à l'endroit indexé de la chaîne de caractères, et incrémente l'index. Elle tourne tant que l'index est plus petit que le size_t reçu en argument. Une fois la condition de sortie remplie, le pointeur reçu est retourné; son contenu a été remplacé par le int reçu sur le size_t reçu de bytes.
+## bzero
+Une chaîne de caractères est créée et prend la valeur du pointeur sur void reçu en argument. Une boucle while assigne '\0' à l'endroit indexé de la chaîne de charactères. Elle tourne tant que l'index est plus petit que le size_t reçu en argument. Une fois la condition de sortie remplie, rien n'est retourné. Le contenu du pointeur a été remplacé par '\0' sur le size_t reçu de bytes.
+## memcpy
+Une chaîne de caractères variable et une constante sont créées et prennent la valeur des pointeurs sur void reçus en arguments (destination et source). Une condition vérifie si ET la destination ET la source sont nulles, si c'est le cas, la fonction renvoie NULL et s'arrête, sinon, elle poursuit. Une boucle while assigne à l'endroit indexé de la destination la valeur de l'endroit indexé de la source, et incrémente l'index. Elle tourne tant que l'index est plus petit que le size_t reçu en argument. Une fois la condition de sortie remplie, la fonction renvoie le pointeur sur la destination. Son contenu a été remplacé par celui de la source, sur le size_t reçu de bytes.
+## memmove
+Même chose que la fonction précédente, à une différence. Dans la boucle, une condition vérifie si la source est placée avant la destination dans la mémoire. Si c'est le cas, pour éviter d'effacer la source en modifiant la destination, la copie se fait dans le sens inverse, en partant de la fin au lieu de partir du début. Sinon, elle se fait comme précédemment.
+## strlcpy
+La fonction memcpy est appelée en passant des arguments différents selon la longueur de la source reçue en argument et celle du size_t reçu en argument (correspondant à la longueur totale que la destination aura à la fin de la fonction). Si cette longueur + 1 est plus petite que le size_t reçu, on passe la longueur + 1 comme dernier argument. Si le size_t reçu est différent de 0, on passe le size_t -1 en dernier argument, et on assigne '\0' au dernier byte de la destination. La fonction renvoie la longueur de la source.
+## strlcat
+
