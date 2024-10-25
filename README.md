@@ -42,3 +42,13 @@ NOM_VARIABLE1 = variable1
 Cible : Dépendance1 Dépendance2
     commande $(NOM_VARIABLE1)
 ```
+La variable NAME définira le nom de votre programme, ici libft.a.
+Vous pouvez créer une variable CFLAGS et lui assigner les flags demandés par la consigne,
+```
+CFLAGS = -Wall -Wextra -Werror
+```
+ainsi, vous n'aurez plus qu'à écrire: 
+```
+cc $(CFLAGS)
+```
+au lieu de les retaper entièrement à chaque fois que vous voudrez écrire une règle de compilation et de potentiellement en modifier chaque itération si vous décidez de les changer. Cependant, dans ce projet, nous n'en avons besoin qu'une seule fois, et il n'y pas de raisons de les changer, ce n'est donc pas vraiment nécessaire. A vous de voir!
