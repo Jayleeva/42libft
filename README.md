@@ -162,6 +162,10 @@ Une variable de type const char* est créée et prend la valeur du pointeur reç
 Même logique que strncmp, à une différence. Deux char * sont créés et prennent la valeur des pointeurs reçus en arguments, castés en char *. C'est ces chaînes de caractères qui seront comparées.
 
 ## strnstr
+**Cherche la chaîne de caractère 2 dans la chaîne de caractère 1, de son 1er au nombre reçu de bytes**
+
+Une condition vérifie si la chaîne 2 est vide OU si les deux chaînes sont identiques. Si c'est le cas, la fonction s'arrête et retourne la chaîne 1, castée en char *. Sinon, une boucle while exécute une seconde boucle while qui incrémente un index j tant que le char indexé par j de la chaîne 2 est identique au char indexé par i + j de la chaîne 1 ET tant que i + j est plus petit que le nombre reçu de bytes ET tant que la chaîne 1 n'a pas été parcourue entièrement. Une fois que la condition de sortie de la 2ème boucle est remplie, une condition vérifie si la chaîne 2 a été entièrement parcourue. Si c'est le cas, la fonction s'arrête et retourne le pointeur à l'index i de la chaîne 1, casté en char * (la chaîne 2 a été trouvée dans la chaîne 1). Sinon, l'index i est incrémenté. La première boucle tourne tant que l'index i est plus petit que le nombre reçu de bytes ET tant que la chaîne 1 n'a pas été entièrement parcourue. Une fois que la condition de sortie de la 1ère boucle est remplie, la fonction s'arrête et retourne NULL (la chaîne 2 n'a pas été trouvée dans la chaîne 1).
+
 ## atoi
 ## calloc
 La fonction malloc est autorisée.
