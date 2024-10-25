@@ -107,7 +107,7 @@ Une chaîne de caractères est créée et prend la valeur du pointeur sur void r
 ## bzero
 **Assigne la valeur '\0' dans le pointeur reçu de son 1er au nombre reçu de bytes**
 
-Une chaîne de caractères est créée et prend la valeur du pointeur sur void reçu en argument. Une boucle while assigne '\0' à l'endroit indexé de la chaîne de charactères. Elle tourne tant que l'index est plus petit que le size_t reçu en argument. Une fois la condition de sortie remplie, rien n'est retourné. Le contenu du pointeur a été remplacé par '\0' sur le size_t reçu de bytes.
+Une chaîne de caractères est créée et prend la valeur du pointeur sur void reçu en argument. Une boucle while assigne '\0' à l'endroit indexé de la chaîne de charactères, et incrémente l'index. Elle tourne tant que l'index est plus petit que le size_t reçu en argument. Une fois la condition de sortie remplie, rien n'est retourné. Le contenu du pointeur a été remplacé par '\0' sur le size_t reçu de bytes.
 ## memcpy
 **Assigne la valeur des bytes de la source reçue dans le pointeur de la destination de son 1er au nombre reçu de bytes**
 
