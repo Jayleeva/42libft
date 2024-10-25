@@ -43,7 +43,14 @@ Cible : Dépendance1 Dépendance2
     commande $(NOM_VARIABLE1)
 ```
 La variable NAME définira le nom de votre programme, ici libft.a.
-Vous pouvez créer une variable CFLAGS et lui assigner les flags demandés par la consigne,
+La cible **all** sert à nommer tous les fichiers que vous voulez que votre Makefile crée. Ici, nous n'en avons besoin que d'un, libft.a, soit $(NAME).
+La cible **clean** sert à nettoyer les fichiers dont on n'a plus besoin. Ici, il s'agit des fichiers .o (objets) qui seront créés lors d'une première compilation; si vous modifiez un ou plusieurs fichiers .c et relancez la commande make, le Makefile saura qu'il doit d'abord nettoyer les .o avant d'en recréer.
+La cible **fclean** sert à nettoyer le programme lui-même une fois qu'on n'en a plus besoin, c'est-à-dire lorsque des modifications ont été faites et qu'il est recompilé. Pour cela, il doit d'abord nettoyer les fichiers .o, c'est pourquoi **clean** est une dépendance de **fclean**.
+La cible **re** sert à éviter que le Makefile relink. C'est lui qui va lancer le **fclean** (qui lui-même lancera le **clean**) sur **all**, pour s'assurer que tout est effacé avant d'être recréé lorsqu'il y a eu des changements et recompilation. 
+
+Voilà pour les obligations. Pour le reste, vous êtes libres d'organiser votre Makefile comme vous le souhaitez.
+
+Par exemple, vous pouvez créer une variable CFLAGS et lui assigner les flags demandés par la consigne,
 ```
 CFLAGS = -Wall -Wextra -Werror
 ```
@@ -51,4 +58,4 @@ ainsi, vous n'aurez plus qu'à écrire:
 ```
 cc $(CFLAGS)
 ```
-au lieu de les retaper entièrement à chaque fois que vous voudrez écrire une règle de compilation et de potentiellement en modifier chaque itération si vous décidez de les changer. Cependant, dans ce projet, nous n'en avons besoin qu'une seule fois, et il n'y pas de raisons de les changer, ce n'est donc pas vraiment nécessaire. A vous de voir!
+au lieu de les retaper entièrement à chaque fois que vous voudrez écrire une règle de compilation et de potentiellement en modifier chaque itération si vous décidez de les changer. Cependant, dans ce projet, nous n'en avons besoin qu'une seule fois, et il n'y pas de raisons de les changer puisqu'ils sont obligatoires, ce n'est donc pas vraiment nécessaire. A vous de voir!
