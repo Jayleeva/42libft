@@ -116,7 +116,7 @@ Une chaîne de caractères variable et une constante sont créées et prennent l
 ## memmove
 **Idem, mais en parant aux chevauchements (part du nombre reçu de bytes et va jusqu'au 1er)**
 
-Même chose que la fonction précédente, à une différence. Dans la boucle, une condition vérifie si la source est placée avant la destination dans la mémoire. Si c'est le cas, pour éviter d'effacer la source en modifiant la destination, la copie se fait dans le sens inverse, en partant de la fin au lieu de partir du début. Sinon, elle se fait comme précédemment.
+Même chose que memcpy, à une différence. Dans la boucle, une condition vérifie si la source est placée avant la destination dans la mémoire. Si c'est le cas, pour éviter d'effacer la source en modifiant la destination, la copie se fait dans le sens inverse, en partant de la fin au lieu de partir du début. Sinon, elle se fait comme précédemment.
 ## strlcpy
 **Fait appel à memcpy *//(et memmove ?!?)//* pour copier une source dans une destination**
 
@@ -147,6 +147,9 @@ Le int reçu est cast en unsigned char. Une condition vérifie si ce unsigned ch
 Même logique que strchr, à quelques différences. Une variable qui servira à retourner le résultat est créée et on l'initialise à NULL; la boucle tourne tant que l'index est plus petit ou égal à la longueur de la chaîne reçue (mesurée avec strlen); si le char indexé correspond au int reçu, le pointeur est assigné à la variable de retour, ce qui le met à jour à chaque fois qu'on tombe sur l'int recherché. Une fois la condition de sortie remplie, la fonction s'arrête et retourne la variable de retour (si aucune itération du int reçu n'a été trouvé, la valeur retournée sera NULL, sinon, on retourne l'adresse de la dernière itération).
 
 ## strncmp
+**Compare les chaînes de caractères reçues du 1er au nombre de bytes reçu**
+
+
 ## memchr
 ## memcmp
 ## strnstr
