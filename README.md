@@ -67,7 +67,7 @@ cc $(CFLAGS)
 ```
 au lieu de les retaper entièrement à chaque fois que vous voudrez écrire une règle de compilation et de potentiellement en modifier chaque itération si vous décidez de les changer. Cependant, dans ce projet, nous n'en avons besoin qu'une seule fois, et il n'y pas de raison de les changer puisqu'ils sont obligatoires, ce n'est donc pas vraiment nécessaire. A vous de voir!
 
-Je ne sais pas si il est obligatoire de créer des fichiers .o; j'ai trouvé cette option et l'ai appliquée. Pour cela, j'ai créé une variable SRC à laquelle j'ai assigné tous mes fichiers .c (j'ai évité la wildcard car bien qu'autorisée, elle demande de la prudence dans son utilisation), puis une variable OBJ à laquelle j'ai assigné $(SRC:.c=.o), ce qui permet de copier les noms des fichiers .c en changeant leur extension en .o, m'évitant ainsi de tout recopier à chaque modification et potentiellement me tromper. Ensuite, je les ai inclus dans la règle qui compile mes fichiers .c en mettant les .o comme cible et les .c comme dépendances avec le header: 
+Pour eviter que mon Makefile relink, j'ai crée des fichiers .o. Pour cela, j'ai créé une variable SRC à laquelle j'ai assigné tous mes fichiers .c (j'ai évité la wildcard car bien qu'autorisée, elle demande de la prudence dans son utilisation), puis une variable OBJ à laquelle j'ai assigné $(SRC:.c=.o), ce qui permet de copier les noms des fichiers .c en changeant leur extension en .o, m'évitant ainsi de tout recopier à chaque modification et potentiellement me tromper. Ensuite, je les ai inclus dans la règle qui compile mes fichiers .c en mettant les .o comme cible et les .c comme dépendances avec le header: 
 ```
 %.o : %.c libft.h
 ```
