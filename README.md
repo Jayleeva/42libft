@@ -77,24 +77,24 @@ Reste le **.PHONY**. Je ne sais pas s'il est obligatoire, mais j'ai préféré l
 
 # Première partie
 ## isalpha
-**Vérifie si l'argument reçu correspond à un char alphabétique (majuscule ou minuscule)**
+**Vérifie si l'int reçu correspond à un char alphabétique (majuscule ou minuscule)**
 
 Une condition vérifie si le int reçu en argument correspond à un char alphabétique. Si c'est le cas, la fonction retourne 1, sinon, elle retourne 0.
 ## isdigit
-**Vérifie si l'argument reçu correspond à un char numérique (de 0 à 9)**
+**Vérifie si l'int reçu correspond à un char numérique (de 0 à 9)**
 
 Une condition vérifie si le int reçu en argument correspond à un char numérique. Si c'est le cas, la fonction retourne 1, sinon, elle retourne 0.
 ## isalnum
-**Vérifie si l'argument reçu correspond à un char alphanumérique (alphabétique ou numérique)**
+**Vérifie si l'int reçu correspond à un char alphanumérique (alphabétique ou numérique)**
 
 Une condition vérifie si le int reçu en argument correspond à un char alphanumérique (alphabétique ou numérique). Si c'est le cas, la fonction retourne 1, sinon, elle retourne 0. 
 *J'ai utilisé les fonctions précédentes au lieu de les réécrire entièrement. Les lecteurs attentifs verront que j'ai mis comme condition : "si le retour de ft_isalpha est non nul" au lieu de "est égal à 1". C'est parce qu'en réalité, is_alpha peut donner des résultats non nuls différents de 1 en fonction de l'environnement sur lequel elle est appelée. Vu que nos projets ne sont testés que sur Mac, il n'est pas nécessaire de s'en soucier, mais je l'ai laissé tel quel pour me rappeler de cette spécificité.*
 ## isascii
-**Vérifie si l'argument reçu correspond à un char de la table ascii**
+**Vérifie si l'int reçu correspond à un char de la table ascii**
 
 Une condition vérifie si le int reçu en argument correspond à un char présent sur la table ascii. Si c'est le cas, la fonction retourne 1, sinon, elle retourne 0.
 ## isprint
-**Vérifie si l'argument reçu correspond à un char imprimable**
+**Vérifie si l'int reçu correspond à un char imprimable**
 
 Une condition vérifie si le int reçu en argument correspond à un char imprimable. Si c'est le cas, la fonction retourne 1, sinon, elle retourne 0.
 ## strlen
