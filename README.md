@@ -24,7 +24,7 @@ type_retour  nom_fonction(type_param1 param1, type_param2 param2);          (dé
 
 #endif                                                                      (fin de la condition)
 ```
-**ATTENTION :** la séparation entre la # et les mots-clés comme def et include est un ESPACE et non une tabulation, bien qu'elle serve d'indentation.
+**ATTENTION :** la séparation entre la # et les mots-clés comme define et include est un ESPACE et non une tabulation, bien qu'elle serve d'indentation.
 
 # Makefile
 Un Makefile sert à faciliter la compilation d'un programme: une fois les règles établies dans ce fichier, il n'y a plus qu'à lancer la commande "make" et votre programme est compilé! 
