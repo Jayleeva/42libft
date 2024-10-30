@@ -14,7 +14,7 @@ Le fichier libft.h est un header: il sert à définir les prototypes des fonctio
 Pour écrire un header, on utilise la structure suivante:
 ```
 #ifndef                                                                     (si rien n'est défini)
-# def                                                                       (alors on définit)
+# define                                                                    (alors on définit)
 
 # include <librairie_nécessaire.h>                                          (inclure la librairie nommée entre <>)
 
