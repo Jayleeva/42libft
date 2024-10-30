@@ -169,10 +169,13 @@ Une condition vérifie si la chaîne 2 est vide OU si les deux chaînes sont ide
 ## atoi
 **Transforme la chaîne de caractères reçue en int**
 
-Une boucle parcourt la chaîne de caractères et incrémente un index i. Elle tourne tant que le char indexé est un espace blanc. Une fois la condition de sortie remplie, une condition vérifie si le char indexé est un + OU un -: si c'est le cas, une condition vérifie si le char qui suit n'est pas un numéro: si c'est le cas, la fonction s'arrête et retourne 0. Sinon, une condition vérifie si le char indexé est spécifiquement un -. Si c'est le cas, la variable n initialisée à 1 est assignée à -1. Dans tous les cas, l'index i est incrémenté. Une boucle parcourt la suite de la chaîne de caractères et réassigne la variable de résultat initialisée à 0 en la multipliant par 10 et lui additionnant le char indexé - 48 (parce que le char '9' par ex se traduit par l'int 57, or nous voulons l'int 9), puis incrémente l'index i. Elle tourne tant que le char indexé est un numéro. Une fois la condition de sortie remplie, la fonction s'arrête et retourne la variable de résultat.
+Une boucle while parcourt la chaîne de caractères et incrémente un index i. Elle tourne tant que le char indexé est un espace blanc. Une fois la condition de sortie remplie, une condition vérifie si le char indexé est un + OU un -: si c'est le cas, une condition vérifie si le char qui suit n'est pas un numéro: si c'est le cas, la fonction s'arrête et retourne 0. Sinon, une condition vérifie si le char indexé est spécifiquement un -. Si c'est le cas, la variable n initialisée à 1 est assignée à -1. Dans tous les cas, l'index i est incrémenté. Une boucle while parcourt la suite de la chaîne de caractères et réassigne la variable de résultat initialisée à 0 en la multipliant par 10 et lui additionnant le char indexé - 48 (parce que le char '9' par ex se traduit par l'int 57, or nous voulons l'int 9), puis incrémente l'index i. Elle tourne tant que le char indexé est un numéro. Une fois la condition de sortie remplie, la fonction s'arrête et retourne la variable de résultat.
 
 ## calloc
-La fonction malloc est autorisée.
+**Alloue de la mémoire au nombre reçu de bytes de la taille reçue et y assigne la valeur 0**
+
+Une variable de type pointeur sur int est déclarée. La fonction malloc est appelée sur ce pointeur pour nelem * elsize (nombre de bytes * taille des bytes). Une condition vérifie si l'allocation a échoué; si c'est le cas, la fonction s'arrête et retourne NULL. Sinon, une boucle while assigne la valeur 0 au pointeur indexé et incrémente l'index. Elle tourne tant que l'index est plus petit que l'espace alloué. Une fois la condition de sortie remplie, la fonction s'arrête et retourne le pointeur casté en pointeur sur void.
+
 ## strdup
 La fonction malloc est autorisée.
 
