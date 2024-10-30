@@ -15,16 +15,19 @@
 
 void	*ft_calloc(size_t nelem, size_t elsize)
 {
-	unsigned char	*ptr;
-	size_t			i;
+	int	*ptr;
+	size_t	i;
 
 	ptr = malloc(nelem * elsize);
 	if (ptr == NULL)
 		return (NULL);
 	i = 0;
 	while (i < nelem * elsize)
-		ptr[i++] = 0;
-	return ((char *)ptr);
+	{
+		ptr[i] = 0;
+		i ++;
+	}
+	return ((void *)ptr);
 }
 
 /*int	main(void)
