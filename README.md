@@ -177,5 +177,7 @@ Une boucle while parcourt la chaîne de caractères et incrémente un index i. E
 Une variable de type pointeur sur int est déclarée. La fonction malloc est appelée sur ce pointeur pour nelem * elsize (nombre de bytes * taille des bytes). Une condition vérifie si l'allocation a échoué; si c'est le cas, la fonction s'arrête et retourne NULL. Sinon, une boucle while assigne la valeur 0 au pointeur indexé et incrémente l'index. Elle tourne tant que l'index est plus petit que l'espace alloué. Une fois la condition de sortie remplie, la fonction s'arrête et retourne le pointeur casté en pointeur sur void.
 
 ## strdup
-La fonction malloc est autorisée.
+**Alloue suffisamment de mémoire puis duplique la chaîne de caractères reçue**
+
+Une variable de type pointeur sur char est déclarée. La fonction malloc est appelée sur ce pointeur pour (ft_strlen(chaîne reçue) + 1) * sizeof(char). Une condition vérifie si l'allocation a échoué; si c'est le cas, la fonction s'arrête et retourne NULL. Sinon, une boucle while assigne la valeur du char indexé à celui du pointeur, puis incrémente l'index. Elle tourne tant que la chaîne reçue n'a pas été entièrement parcourue. Une fois la condition de sortie remplie, la valeur '\0' marquant la fin de la chaîne est assignée au dernier char du pointeur. La fonction retourne le pointeur.
 
