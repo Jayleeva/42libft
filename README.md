@@ -17,7 +17,7 @@ Pour écrire un header, on utilise la structure suivante:
 # define                                                                    (alors on définit)
 
 # include <librairie_nécessaire.h>                                          (inclure la librairie nommée entre <>)
-# include "fichier_nécessaire.extension"                                    (inclure le fichier nommé entre <>)
+# include "fichier_nécessaire.extension"                                    (inclure le fichier nommé entre "")
 
 type_retour  nom_fonction(type_param1 param1, type_param2 param2);          (définir prototype d'une fonction)
                                                                             ex.
