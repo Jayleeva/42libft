@@ -73,7 +73,7 @@ Pour eviter que mon Makefile relink, j'ai crée des fichiers .o. Pour cela, j'ai
 %.o : %.c libft.h
   cc $(CFLAGS) -I. -c $< -o $(<:.c=.o)
 ```
-Le % signifie "n'importe quelle suite de caractères", ce qui permet d'accéder à tous les fichiers dont les noms finissent par .o puis par .c. Ainsi, pour chaque fichier .o, le Makefile sait qu'il doit chercher le .c correspondant ainsi que le header pour appliquer la règle qui suit, en l'ooccurence la compilation. Le -I. qui fait suite aux flags habituels sert a (), le -c $< sert a () et le -o $(<:.c=.o) sert a ().
+En utilisant le % pour les .o en cible et les .c en dependances, on dit que pour chaque fichier .o, le Makefile doit chercher le .c correspondant (ils doivent avoir le meme nom en dehors de l'extension). Le -I. qui fait suite aux flags habituels sert a (inclure les repertoires du pwd? afin de?; on peut preciser un path au lieu de simplement mettre un point). Le $< correspond a la premiere dependance, a savoir ici les fichiers.c ; le $(<:.c=.o) (indique donc les fichiers.o crees a partir de leurs sources en .c ?). Ainsi, le -c $< sert a () et le -o $(<:.c=.o) sert a (). 
 
 Reste le **.PHONY**. Je ne sais pas s'il est obligatoire, mais j'ai préféré l'utiliser pour parer à toute éventualité. Son rôle est lié à la façon dont fonctionne un Makefile: en effet, ce dernier se base sur la date de modification des fichiers pour savoir s'il doit recompiler lorsque la commande make est lancée ou si ce n'est pas nécessaire. Or, il est possible de changer ces dates sans effectuer de modification, ou de faire des modifications puis de changer la date pour faire croire qu'il n'y en a pas eu. Le **.PHONY** permet de contrer ce problème, bien que je n'aie pas compris comment exactement.
 
