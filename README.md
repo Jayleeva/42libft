@@ -75,6 +75,8 @@ Pour éviter que mon Makefile relink, j'ai crée des fichiers .o. Pour cela, j'a
 ```
 En utilisant le % pour les .o en cible et les .c en dépendances, je dis que pour chaque fichier .o, le Makefile doit chercher le .c correspondant (ils doivent avoir le même nom en dehors de leurs extensions). Le **-I.** qui fait suite aux flags habituels est nécessaire pour une compilation correcte: il est passé au préprocesseur (et?). Le ``$<`` correspond à la première dépendance, à savoir ici les fichiers.c ; le ``$(<:.c=.o)`` (indique donc les fichiers.o crées à partir de leurs sources en .c ?). En écrivant: ``-c $< -o $(<:.c=.o)``, je demande de compiler **(-c)** mes fichiers.c sans faire d'édition de liens (sans relink?), en des output **(-o)** .o correspondants.
 
+*Précision: dans ce github que j'utilise comme "prise de notes", j'ai fait le choix de séparer les fonctions de la partie 1 et 2 dans des répertoires différents, et donc adapté le Makefile en conséquences (en ajustant le path des sources). Cependant, cela serait compté faux par la Moulinette! Toutes les fonctions doivent être au même endroit, sans sous-dossiers.*
+
 Reste le **.PHONY**. Je ne sais pas s'il est obligatoire, mais j'ai préféré l'utiliser pour parer à toute éventualité. Son rôle est lié à la façon dont fonctionne un Makefile: en effet, ce dernier se base sur la date de modification des fichiers pour savoir s'il doit recompiler lorsque la commande make est lancée ou si ce n'est pas nécessaire. Or, il est possible de changer ces dates sans effectuer de modification, ou de faire des modifications puis de changer la date pour faire croire qu'il n'y en a pas eu. Le **.PHONY** permet de contrer ce problème, bien que je n'aie pas compris comment exactement.
 
 # Première partie
