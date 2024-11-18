@@ -120,9 +120,9 @@ Une chaîne de caractères variable et une constante sont créées et prennent l
 
 Même chose que memcpy, à une différence. Dans la boucle, une condition vérifie si la source est placée avant la destination dans la mémoire. Si c'est le cas, pour éviter d'effacer la source en modifiant la destination, la copie se fait dans le sens inverse, en partant de la fin au lieu de partir du début. Sinon, elle se fait comme précédemment.
 ## strlcpy
-**Fait appel à memcpy *//(et memmove ?!?)//* pour copier une source dans une destination**
+**Fait appel à memcpy pour copier une source dans une destination**
 
-La fonction memcpy est appelée en passant des arguments différents selon la longueur de la source reçue en argument et celle du size_t reçu en argument (correspondant à la longueur totale que la destination aura à la fin de la fonction). Si cette longueur + 1 est plus petite que le size_t reçu, on passe la longueur + 1 comme dernier argument. Si le size_t reçu est différent de 0, on passe le size_t -1 en dernier argument, et on assigne '\0' au dernier byte de la destination. La fonction retourne la longueur de la source. *// En fonction de si la source est placée avant la destination dans la mémoire, on appelle soit la fonction memcpy soit la fonction memmove ?!? //*
+La fonction memcpy est appelée en passant des arguments différents selon la longueur de la source reçue en argument et celle du size_t reçu en argument (correspondant à la longueur totale que la destination aura à la fin de la fonction). Si cette longueur + 1 est plus petite que le size_t reçu, on passe la longueur + 1 comme dernier argument. Si le size_t reçu est différent de 0, on passe le size_t -1 en dernier argument, et on assigne '\0' au dernier byte de la destination. La fonction retourne la longueur de la source. 
 ## strlcat
 **Concatène les chaînes de caractères reçues jusqu'au nombre reçu de bytes**
 
