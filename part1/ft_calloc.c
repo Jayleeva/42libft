@@ -15,7 +15,7 @@
 
 void	*ft_calloc(size_t nelem, size_t elsize)
 {
-	int	*ptr;
+	char	*ptr;
 	size_t	i;
 
 	ptr = malloc(nelem * elsize);
@@ -27,7 +27,7 @@ void	*ft_calloc(size_t nelem, size_t elsize)
 		ptr[i] = 0;
 		i ++;
 	}
-	return ((void *)ptr);
+	return (ptr);
 }
 
 /*int	main(void)
