@@ -100,7 +100,7 @@ Une condition vérifie si le int reçu en argument correspond à un char présen
 
 Une condition vérifie si le int reçu en argument correspond à un char imprimable. Si c'est le cas, la fonction retourne 1, sinon, elle retourne 0.
 ## strlen
-**Mesure la longueur de l'argument reçu**
+**Mesure la longueur du char * reçu**
 
 Une boucle while incrémente un index tant que la chaîne de caractères reçue en argument n'a pas été parcourue entièrement, soit tant que l'index ne pointe pas sur un '\0'. Une fois la condition de sortie remplie, la fonction s'arrête. Elle retourne l'index, soit la longueur de la chaîne reçue.
 ## memset
