@@ -71,8 +71,9 @@ au lieu de les retaper entièrement à chaque fois que vous voudrez écrire une 
 Pour eviter que mon Makefile relink, j'ai crée des fichiers .o. Pour cela, j'ai créé une variable SRC à laquelle j'ai assigné tous mes fichiers .c (j'ai évité la wildcard car bien qu'autorisée, elle demande de la prudence dans son utilisation), puis une variable OBJ à laquelle j'ai assigné $(SRC:.c=.o), ce qui permet de copier les noms des fichiers .c en changeant leur extension en .o, m'évitant ainsi de tout recopier à chaque modification et de potentiellement me tromper. Ensuite, je les ai inclus dans la règle qui compile mes fichiers .c en mettant les .o comme cible et les .c comme dépendances avec le header: 
 ```
 %.o : %.c libft.h
+  cc $(CFLAGS) -I. -c $< -o $(<:.c=.o)
 ```
-Le % signifie "n'importe quelle suite de caractères", ce qui permet d'accéder à tous les fichiers dont les noms finissent par .o puis par .c. Ainsi, pour chaque fichier .o, le Makefile sait qu'il doit chercher le .c correspondant ainsi que le header pour appliquer la règle qui suit.
+Le % signifie "n'importe quelle suite de caractères", ce qui permet d'accéder à tous les fichiers dont les noms finissent par .o puis par .c. Ainsi, pour chaque fichier .o, le Makefile sait qu'il doit chercher le .c correspondant ainsi que le header pour appliquer la règle qui suit, en l'ooccurence la compilation. Le -I. qui fait suite aux flags habituels sert a (), le -c $< sert a () et le -o $(<:.c=.o) sert a ().
 
 Reste le **.PHONY**. Je ne sais pas s'il est obligatoire, mais j'ai préféré l'utiliser pour parer à toute éventualité. Son rôle est lié à la façon dont fonctionne un Makefile: en effet, ce dernier se base sur la date de modification des fichiers pour savoir s'il doit recompiler lorsque la commande make est lancée ou si ce n'est pas nécessaire. Or, il est possible de changer ces dates sans effectuer de modification, ou de faire des modifications puis de changer la date pour faire croire qu'il n'y en a pas eu. Le **.PHONY** permet de contrer ce problème, bien que je n'aie pas compris comment exactement.
 
