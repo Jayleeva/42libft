@@ -122,7 +122,7 @@ Même chose que memcpy, à une différence. Dans la boucle, une condition vérif
 ## strlcpy
 **Fait appel à memcpy pour copier une source dans une destination**
 
-La fonction memcpy est appelée en passant des arguments différents selon la longueur de la source reçue en argument et celle du size_t reçu en argument (correspondant à la longueur totale que la destination aura à la fin de la fonction). Si cette longueur + 1 est plus petite que le size_t reçu, on passe la longueur + 1 comme dernier argument. Si le size_t reçu est différent de 0, on passe le size_t -1 en dernier argument, et on assigne '\0' au dernier byte de la destination. La fonction retourne la longueur de la source. 
+La fonction memcpy est appelée en passant des arguments différents selon la longueur de la source reçue en argument et celle du size_t reçu en argument (correspondant à la longueur totale que la destination aura à la fin de la fonction). Si cette longueur + 1 est plus petite que le size_t reçu, on passe la longueur + 1 comme dernier argument. Si le size_t reçu est différent de 0, on passe le size_t -1 en dernier argument, et on assigne '\0' au dernier byte de la destination. La fonction retourne la longueur de la source. FAIBLESSE (héritée de memcpy/strcpy/strncpy): en cas de chevauchement, le comportement est indéfini.
 ## strlcat
 **Concatène les chaînes de caractères reçues jusqu'au nombre reçu de bytes**
 
