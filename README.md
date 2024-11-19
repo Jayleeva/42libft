@@ -73,7 +73,7 @@ Pour éviter que mon Makefile relink, j'ai crée des fichiers .o. Pour cela, j'a
 %.o : %.c libft.h
   cc $(CFLAGS) -I. -c $< -o $(<:.c=.o)
 ```
-En utilisant le % pour les .o en cible et les .c en dépendances, je dis que pour chaque fichier .o, le Makefile doit chercher le .c correspondant (ils doivent avoir le même nom en dehors de leurs extensions). Le **-I.** qui fait suite aux flags habituels est nécessaire pour une compilation correcte: il est passé au préprocesseur (et?). Le ``$<`` correspond à la première dépendance, à savoir ici les fichiers.c ; le ``$(<:.c=.o)`` (indique donc les fichiers.o crées à partir de leurs sources en .c ?). En écrivant: ``-c $< -o $(<:.c=.o)``, je demande de compiler **(-c)** mes fichiers.c sans faire d'édition de liens (sans relink?), en des output **(-o)** .o correspondants.
+En utilisant le % pour les .o en cible et les .c en dépendances, je dis que pour chaque fichier .o, le Makefile doit chercher le .c correspondant (ils doivent avoir le même nom en dehors de leurs extensions). Le **-I.** qui fait suite aux flags habituels est nécessaire pour une compilation correcte: il est passé au préprocesseur (et?). Le ``$<`` correspond à la première dépendance, à savoir ici les fichiers.c ; le ``$(<:.c=.o)`` (indique donc les fichiers.o crées à partir de leurs sources en .c ?). En écrivant: ``-c $< -o $(<:.c=.o)``, je demande de compiler **(-c)** mes fichiers.c sans faire d'édition de liens (sans relink?*), en des output **(-o)** .o correspondants.
 
 *Précision: dans ce github que j'utilise comme "prise de notes", j'ai fait le choix de séparer les fonctions de la partie 1 et 2 dans des répertoires différents, et donc adapté le Makefile en conséquences (en ajustant le path des sources). Cependant, cela serait compté faux par la Moulinette! Pour rendre le projet, toutes les fonctions obligatoires doivent être au même endroit, sans sous-dossiers.*
 
@@ -184,4 +184,18 @@ Une variable de type pointeur sur int est déclarée. La fonction malloc est app
 **Alloue suffisamment de mémoire puis duplique la chaîne de caractères reçue**
 
 Une variable de type pointeur sur char est déclarée. La fonction malloc est appelée sur ce pointeur pour (ft_strlen(chaîne reçue) + 1) * sizeof(char). Une condition vérifie si l'allocation a échoué; si c'est le cas, la fonction s'arrête et retourne NULL. Sinon, une boucle while assigne la valeur du char indexé à celui du pointeur, puis incrémente l'index. Elle tourne tant que la chaîne reçue n'a pas été entièrement parcourue. Une fois la condition de sortie remplie, la valeur '\0' marquant la fin de la chaîne est assignée au dernier char du pointeur. La fonction retourne le pointeur.
+
+
+*https://progmaph.epfl.ch/miniref/miniref-makefile.html
+La compilation d'un programme est composée de deux étapes principales :
+
+l'étape de compilation proprement dite :
+
+la syntaxe est vérifiée ;
+les variables et appels aux fonctions/méthodes sont vérifiés pour s'assurer que toutes les déclarations existent ;
+le code machine correspondant est créé dans les fichiers « objets » (avec l'extension .o) ;
+l'étape « d'édition de liens » (linking) :
+il est vérifié que les appels aux fonctions/méthodes correspondent aux leur définition ;
+il est vérifié qu'une et une seule définition existe pour chacune des fonctions/méthodes appelées ;
+les fichiers objets sont liés entre eux pour créer le programme exécutable final.
 
