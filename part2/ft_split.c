@@ -13,7 +13,7 @@
 #include "libft.h"
 //#include <stdio.h>
 
-static void	free_tab(char **tab)
+void	free_tab(char **tab)
 {
 	int	i;
 
